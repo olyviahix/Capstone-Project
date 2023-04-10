@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { store } from './app/store';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <Provider>
+    <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
 );
