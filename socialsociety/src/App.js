@@ -1,18 +1,10 @@
-import React from 'react';
 import './App.css';
-import CreateUser from './Components/CreateUser'
-import LoginPage from './Components/LoginPage'
-import PostContent from './Components/PostContent';
-// import './index.css'
+import Home from './pages/Home';
 
 function App() {
   return (
-    
-    <div>
-     
-      <LoginPage/>
-      <CreateUser/>
-      <PostContent/>
+    <div className="App">
+      <Home/>
     </div>
   );
 }
