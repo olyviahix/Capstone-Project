@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+.icons {
+  display: flex;
+  gap: 15px;
+  padding-left: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.createUserForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 300px;
+  height: 550px;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  border-style:solid;
+}
+
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 575px;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+}
+
+.dontHaveAccount {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 250px;
+  padding-left: 45px;
+  padding-right: 18px;
 }
 
-.App-link {
-  color: #61dafb;
+.formLogo {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.userPost{
+  width: 300px;
+  height: 200px;
+  border: 2px solid black;
+  padding-top: 10px;
+  border-radius: 20px;
 }
+
+* {
+  font-family: 'Fira Sans', sans-serif;
+  color: black;
+}
+
