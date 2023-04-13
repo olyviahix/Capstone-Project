@@ -1,32 +1,90 @@
 .App {
   text-align: center;
 }
+@media only screen and (max-width: 1097px){
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  #mobile-content{
+    width: 100vw;
+    gap: 0;
+  }
+  #mobile-fixed {
+    position: sticky;
+    width: 100vw;
+    border: none;
+  }
+  #right-section{
+    display: none;
+  }
+  #resp-sidebar {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    border: none;
+  }
+  #top-sidebar {
+    display: none;
+  }
+  #resp-sidebar > .link {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 0 auto;
+  }
+  .link_text{
+    display: none;
+  }
+}
 .main{
   display: flex;
   height: 100vh;
-  position: relative;
 }
-.content {
+.content, .right-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100vw;
+  overflow: auto;
+  width: 100%;
   height: 100vh;
-  gap: 80px;
   transition: all .5s;
 }
-.side-container {
+
+.fixed-container, .fixed-container-right {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #000;
+  color: #fff;
+}
+.post-section, .post-section-right {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  margin-top: 100px;
+}
+.content::-webkit-scrollbar {
+  display: none;
+}
+/* .side-container {
   display: flex;
   height: 100vh;
+  overflow: auto;
   position: fixed;
-}
+} */
 .sidebar {
   background: #000;
   color: #fff;
   height: 100vh;
   width: 300px;
   transition: all 0.5s;
+  border-right: 1px solid rgb(169, 30, 30);
 }
 .top_section {
   display: flex;
@@ -53,16 +111,12 @@
   padding: 10px 15px;
   text-decoration: none;
   gap: 15px;
+  margin-left: 40px;
   transition: all 0.5s;
 }
 .link:hover {
-  background: lightskyblue;
-  color: #000;
-  transition: all 0.5s;
-}
-.link:active {
-  background: lightskyblue;
-  color: #000;
+  cursor: default;
+  color: #fff;
 }
 .button {
   border: lightskyblue !important;
@@ -77,6 +131,18 @@
 .icon, .link_text {
   font-size: 20px;
 }
+.navItem {
+  display: flex;
+  gap: 15px;
+  padding: 13px;
+  border-radius: 30px;
+}
+.navItem:hover {
+  background: rgba(128, 128, 128, .3);
+  color: #fff;
+  transition: all 0.5s;
+  cursor: pointer;
+}
 
 .footer {
   display: flex;
@@ -89,4 +155,8 @@
 } 
 .profile:hover {
   cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 20px;
 }
