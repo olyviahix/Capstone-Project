@@ -26,6 +26,14 @@
   border-radius: 20px;
 }
 .dontHaveAccount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  padding-left: 45px;
+  padding-right: 18px;
+}
 
 
 .App-logo {
@@ -54,11 +62,10 @@
 .formLogo {
   display: flex;
   flex-direction: column;
-
+}
 
 .App-link {
   color: #61dafb;
-
 }
 .userPost{
   width: 300px;
@@ -226,3 +233,55 @@
 .plus-icon {
   font-size: 20px;
 }
+
+/* Erecks css */
+.ProfileBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  flex-wrap:wrap;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.edit {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.edit label {
+  text-align: left;
+  display: block;
+}
+
+.edit h2 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.edit input, .edit textarea {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+.edit button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
