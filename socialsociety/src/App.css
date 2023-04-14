@@ -52,7 +52,8 @@
   border: 2px solid black;
   padding-top: 10px;
   border-radius: 20px;
-  
+}
+ 
 @media only screen and (max-width: 1097px){
   .main {
     display: flex;
