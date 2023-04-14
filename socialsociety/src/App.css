@@ -30,7 +30,6 @@
   padding-right: 10px;
   border-radius: 20px;
 }
-
 .dontHaveAccount {
   display: flex;
   flex-direction: column;
@@ -40,7 +39,6 @@
   padding-left: 45px;
   padding-right: 18px;
 }
-
 .formLogo {
   display: flex;
   flex-direction: column;
