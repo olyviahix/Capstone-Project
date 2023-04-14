@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 // import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
     element: <Messages/>
   }
 ]);
+=======
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+>>>>>>> parent of fcdb1d1 (create user and login cards created as well as social post card)
 
 root.render(
     <Provider store={store}>
