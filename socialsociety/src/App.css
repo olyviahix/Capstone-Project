@@ -2,6 +2,32 @@
   text-align: center;
 }
 
+.createUserForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 550px;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  border-style:solid;
+}
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 575px;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+}
+.dontHaveAccount {
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -16,6 +42,7 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,10 +51,15 @@
   color: white;
 }
 
+.formLogo {
+  display: flex;
+  flex-direction: column;
+
+
 .App-link {
   color: #61dafb;
-}
 
+}
 .userPost{
   width: 300px;
   height: 200px;
