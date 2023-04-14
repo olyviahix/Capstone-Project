@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
-.icons {
-  display: flex;
-  gap: 15px;
-  padding-left: 15px;
+.App {
+  text-align: center;
 }
+
 .createUserForm {
   display: flex;
   flex-direction: column;
@@ -29,17 +26,39 @@
   border-radius: 20px;
 }
 .dontHaveAccount {
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 250px;
-  padding-left: 45px;
-  padding-right: 18px;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
+
 .formLogo {
   display: flex;
   flex-direction: column;
+
+
+.App-link {
+  color: #61dafb;
+
 }
 .userPost{
   width: 300px;
@@ -207,9 +226,3 @@
 .plus-icon {
   font-size: 20px;
 }
-
-* {
-  font-family: 'Fira Sans', sans-serif;
-  color: black;
-}
-

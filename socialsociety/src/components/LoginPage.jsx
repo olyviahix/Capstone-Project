@@ -1,7 +1,8 @@
-import { Card } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Logo_Full from '/Users/olyviahix/Desktop/DigitalCrafts/Capstone-Project/socialsociety/src/Images/Logo_Full.png'
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Logo_Full from '../Images/Logo_Full.png';
 
 function LoginPage() {
   return (
@@ -26,7 +27,7 @@ function LoginPage() {
       <br></br>
       <div class="dontHaveAccount">
         <h6>Dont Have an Account? </h6>
-            <Button variant="secondary" type="submit">
+            <Button variant="secondary" type="submit" to={'/createUser'}>
                 Sign Up!
             </Button>
       </div>

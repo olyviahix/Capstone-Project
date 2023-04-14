@@ -1,8 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Logo_Full from '/Users/olyviahix/Desktop/DigitalCrafts/Capstone-Project/socialsociety/src/Images/Logo_Full.png'
+// import Row from 'react-bootstrap/Row';
+import Logo_Full from '../Images/Logo_Full.png'
 
 function CreateUser() {
   return (
