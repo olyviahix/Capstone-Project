@@ -5,7 +5,6 @@
   gap: 15px;
   padding-left: 15px;
 }
-
 .createUserForm {
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@
   border-radius: 20px;
   border-style:solid;
 }
-
 .loginForm{
   display: flex;
   flex-direction: column;
