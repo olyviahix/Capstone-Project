@@ -9,13 +9,14 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 550px;
+  height: 575px;
   border: 2px solid black;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
-  border-style:solid;
+  border-style: solid;
+  box-shadow: 1px 2px 2px 1px black;
 }
 .loginForm{
   display: flex;
@@ -27,6 +28,7 @@
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
+  box-shadow: 1px 2px 2px 1px black;
 }
 .dontHaveAccount {
   display: flex;
@@ -42,7 +44,7 @@
   flex-direction: column;
 }
 .userPost{
-  width: 300px;
+  width: 400px;
   height: 200px;
   border: 2px solid black;
   padding-top: 10px;
@@ -109,6 +111,7 @@
   width: 100%;
   background: #000;
   color: #fff;
+  z-index: 1;
 }
 .post-section, .post-section-right {
   display: flex;
@@ -119,19 +122,13 @@
 .content::-webkit-scrollbar {
   display: none;
 }
-/* .side-container {
-  display: flex;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-} */
 .sidebar {
   background: #000;
   color: #fff;
   height: 100vh;
-  width: 300px;
+  width: 275px;
   transition: all 0.5s;
-  border-right: 1px solid rgb(169, 30, 30);
+  /* border-right: 1px solid rgb(169, 30, 30); */
 }
 .top_section {
   display: flex;
@@ -207,9 +204,15 @@
 .plus-icon {
   font-size: 20px;
 }
+.glowing-border {
+  border: 2px solid red;
+  border-radius: 7px;
+}
 
 * {
   font-family: 'Fira Sans', sans-serif;
-  color: black;
+  /* color: black; */
+  margin: 0;
+  padding: 0;
 }
 

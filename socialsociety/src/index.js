@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
+import CreateUserPage from './pages/CreateUserPage';
 
 const container = document.getElementById('root');
 const root = createRoot(container, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "messages",
     element: <Messages/>
+  },
+  {
+    path: 'createuser',
+    element: <CreateUserPage/>
   }
 ]);
 

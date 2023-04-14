@@ -1,6 +1,7 @@
 import AddPosts from "../components/AddPosts";
 import SideBar from "../components/Sidebar";
-import '/Users/amirhali/repos/Capstone-Project/socialsociety/src/App.css';
+import PostContent from "../components/PostContent";
+import '../App.css';
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
                     <AddPosts/>
                 </div>
                 <div className='post-section'>
+                    <PostContent/>
                     <div><p>Post</p></div>
                     <div><p>Post</p></div>
                     <div><p>Post</p></div>
@@ -37,9 +39,6 @@ export default function Home() {
                 </div>
             </div>
             <div className='right-content' id='right-section'>
-                <div className='fixed-container-right'>
-                    <h1>Suggestions</h1>
-                </div>
                 <div className='post-section-right'>
                     <div><p>Post</p></div>
                 </div>

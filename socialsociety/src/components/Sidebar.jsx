@@ -13,7 +13,7 @@ export default function SideBar() {
     // }
     const navItem = [
         {
-        path: '/home',
+        path: '/',
         icon: <i class="bi bi-grid-3x3-gap-fill"></i>,
         linkText: 'Home'
         },
@@ -54,6 +54,12 @@ export default function SideBar() {
                         </Link>
                     ))
                 }
+                <Link className='link'>
+                            <div className='navItem'>
+                                <div className="icon"><i class="bi bi-box-arrow-left profile"></i></div>
+                                <div className="link_text">Logout</div>
+                            </div>
+                        </Link>
                 <div className="footer">
                     <i class="bi bi-box-arrow-left profile"></i>
                 </div>

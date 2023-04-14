@@ -1,7 +1,7 @@
-import { Card } from 'react-bootstrap';
+import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Logo_Full from '/Users/olyviahix/Desktop/DigitalCrafts/Capstone-Project/socialsociety/src/Images/Logo_Full.png'
+import Logo_Full from '../Images/Logo_Full.png';
 
 function LoginPage() {
   return (
@@ -26,9 +26,9 @@ function LoginPage() {
       <br></br>
       <div class="dontHaveAccount">
         <h6>Dont Have an Account? </h6>
-            <Button variant="secondary" type="submit">
+            <Link variant="secondary" type="submit" to={'/createuser'}>
                 Sign Up!
-            </Button>
+            </Link>
       </div>
     </Form> 
   );

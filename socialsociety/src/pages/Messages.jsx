@@ -1,6 +1,12 @@
+import SideBar from "../components/Sidebar";
 
 export default function Messages() {
     return (
-        <h1>User Incoming Messages</h1>
+        <div className='main'>
+            <SideBar/>
+            <div className="content">
+                <h2>Incoming Messages</h2>
+            </div>
+        </div>
     )
 }
