@@ -28,14 +28,13 @@
   color: #61dafb;
 }
 
-<<<<<<< HEAD
 .userPost{
   width: 300px;
   height: 200px;
   border: 2px solid black;
   padding-top: 10px;
   border-radius: 20px;
-  
+}
 @media only screen and (max-width: 1097px){
   .main {
     display: flex;
@@ -194,13 +193,4 @@
 
 .plus-icon {
   font-size: 20px;
-=======
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
->>>>>>> parent of fcdb1d1 (create user and login cards created as well as social post card)
 }
