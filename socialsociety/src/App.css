@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
-
-.icons {
-  display: flex;
-  gap: 15px;
-  padding-left: 15px;
+.App {
+  text-align: center;
 }
 
 .createUserForm {
@@ -18,7 +14,6 @@
   border-radius: 20px;
   border-style:solid;
 }
-
 .loginForm{
   display: flex;
   flex-direction: column;
@@ -30,7 +25,6 @@
   padding-right: 10px;
   border-radius: 20px;
 }
-
 .dontHaveAccount {
   display: flex;
   flex-direction: column;
@@ -41,18 +35,45 @@
   padding-right: 18px;
 }
 
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .formLogo {
   display: flex;
   flex-direction: column;
 }
 
+.App-link {
+  color: #61dafb;
+}
 .userPost{
   width: 300px;
   height: 200px;
   border: 2px solid black;
   padding-top: 10px;
   border-radius: 20px;
-  
+}
 @media only screen and (max-width: 1097px){
   .main {
     display: flex;
@@ -213,8 +234,54 @@
   font-size: 20px;
 }
 
-* {
-  font-family: 'Fira Sans', sans-serif;
+/* Erecks css */
+.ProfileBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  flex-wrap:wrap;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.edit {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.edit label {
+  text-align: left;
+  display: block;
+}
+
+.edit h2 {
+  font-size: 20px;
   color: black;
+  margin-bottom: 30px;
+}
+
+.edit input, .edit textarea {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+.edit button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
