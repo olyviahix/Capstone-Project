@@ -7,6 +7,9 @@ export default function Messages() {
             <div className="content">
                 <h2>Incoming Messages</h2>
             </div>
+            <div className='right-content'>
+                
+            </div>
         </div>
     )
 }

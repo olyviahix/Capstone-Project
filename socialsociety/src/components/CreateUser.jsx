@@ -4,14 +4,15 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Logo_Full from '../Images/Logo_Full.png';
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../features/loggedUserSlice";
 
 function CreateUser() {
-  const username = document.getElementById('formGridUsername');
-  const userEmail = document.getElementById('formGridEmail');
-  const firstName = document.getElementById('formGridFirstName');
-  const lastName = document.getElementById('formGridLastName');
-  const password = document.getElementById('formGridPassword');
-  const passwordVerified = document.getElementById('formGridPassword-Verified');
+
+  const url = 'http://localhost:7000'
+  const dispatch = useDispatch();
+  
 
   const check = () => {
     if (document.getElementById('formGridPassword').value ===
@@ -26,6 +27,13 @@ function CreateUser() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const username = document.getElementById('formGridUsername');
+    const userEmail = document.getElementById('formGridEmail');
+    const firstName = document.getElementById('formGridFirstName');
+    const lastName = document.getElementById('formGridLastName');
+    const password = document.getElementById('formGridPassword');
+    const passwordVerified = document.getElementById('formGridPassword-Verified');
+
     if(password.value === passwordVerified.value && password.value != null){
       const user = {
         username: username.value,
@@ -34,7 +42,21 @@ function CreateUser() {
         lastName: lastName.value,
         password: passwordVerified.value
       }
-    }
+      axios.post(url+'/create-user', user).then(response => {
+        if(response.data === 'Request successful.'){
+          axios.get(url+`/user/${username.value}`).then(response => {
+            if(response.data != null){
+              console.log(response.data);
+              dispatch(setCurrentUser(response.data))
+            }
+          })
+        }
+      }).catch(error => {
+        if(error){
+          console.log(error)
+        }
+      })
+      }
 
   }
   return (
@@ -68,7 +90,7 @@ function CreateUser() {
         <Form.Control type='password' placeholder="Confirm Password" onKeyUp={()=>{check()}} />
       </Form.Group>
 
-      <Button variant="secondary" type='submit'>
+      <Button variant="secondary" type='submit' onClick={handleSubmit}>
         Create User
       </Button>
       <div class="dontHaveAccount">

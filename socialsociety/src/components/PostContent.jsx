@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 
-
 function PostContent() {
   return (
     <Card className="userPost" >

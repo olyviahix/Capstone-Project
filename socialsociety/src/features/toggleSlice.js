@@ -2,7 +2,7 @@ import {  createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     value: {
-        sideBarOpen: false
+        logOutModal: false,
     }
 }
 
@@ -10,13 +10,13 @@ export const toggleSlice = createSlice({
     name: 'toggle',
     initialState,
     reducers: {
-        openSideBar: (state) => {
-            state.value.sideBarOpen = !state.value.sideBarOpen;
+        openLogOut: (state) => {
+            state.value.logOutModal = !state.value.logOutModal;
         }
     }
-})
+});
 
-export const { openSideBar } = toggleSlice.actions;
+export const { openLogOut } = toggleSlice.actions;
 
 export const setToggle = (state) => state.toggle.value;
 

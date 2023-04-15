@@ -2,25 +2,45 @@ import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Logo_Full from '../Images/Logo_Full.png';
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../features/loggedUserSlice";
+import axios from "axios";
 
 function LoginPage() {
+
+  const url = 'http://localhost:7000';
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const username = document.getElementById('formUsername').value;
+
+    axios.get(url+`/user/${username}`).then(response => {
+      const foundUser = response.data;
+      if(foundUser != null){
+        localStorage.setItem('user', JSON.stringify(foundUser))
+        dispatch(setCurrentUser(foundUser))
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+  }
   return (
     <Form className="loginForm">
         <div className="formLogo">
             <img src={Logo_Full}/>
         </div>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+      <Form.Group className="mb-3" controlId="formUsername">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="text" placeholder="Enter Username" />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password" placeholder="Enter Password" />
       </Form.Group>
-      <Button variant="secondary" type="submit">
+      <Button variant="secondary" type="submit" onClick={handleSubmit}>
         Login!
       </Button>
       <br></br>

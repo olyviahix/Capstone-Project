@@ -1,16 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { openSideBar, setToggle } from "../features/toggleSlice";
+import { openLogOut, setToggle } from "../features/toggleSlice";
 import { Link } from "react-router-dom";
+import { currentUser } from "../features/loggedUserSlice";
 
 export default function SideBar() {
 
+    const loggedUser = useSelector(currentUser);
     const dispatch = useDispatch();
-    const sideOpen = useSelector(setToggle);
+    const logout = () => {
+        dispatch(openLogOut());
+    }
 
-    // const toggle = () => {
-    //     dispatch(openSideBar())
-    // }
     const navItem = [
         {
         path: '/',
@@ -25,7 +26,7 @@ export default function SideBar() {
     {
         path: '/notification',
         icon: <i class="bi bi-bell-fill"></i>,
-        linkText: 'Notification'
+        linkText: 'Notifications'
     },
     {
         path: '/messages',
@@ -55,13 +56,14 @@ export default function SideBar() {
                     ))
                 }
                 <Link className='link'>
-                            <div className='navItem'>
+                            <div className='navItem' onClick={logout}>
                                 <div className="icon"><i class="bi bi-box-arrow-left profile"></i></div>
                                 <div className="link_text">Logout</div>
                             </div>
-                        </Link>
+                </Link>
                 <div className="footer">
-                    <i class="bi bi-box-arrow-left profile"></i>
+                    <i class="bi bi-person-circle"></i>
+                    <span>{loggedUser.username}</span>
                 </div>
             </div>
         </div>
