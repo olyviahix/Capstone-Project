@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Logo_Full from '../Images/Logo_Full.png';
+import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "../features/loggedUserSlice";
 import axios from "axios";
@@ -10,6 +11,9 @@ function LoginPage() {
 
   const url = 'http://localhost:7000';
   const dispatch = useDispatch();
+  const [type, setType] = useState('password');
+  const [display, setDisplay] = useState('Show');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = document.getElementById('formUsername').value;
@@ -24,6 +28,7 @@ function LoginPage() {
       console.log(err);
     })
   }
+
   return (
     <Form className="loginForm">
         <div className="formLogo">
@@ -38,7 +43,8 @@ function LoginPage() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter Password" />
+        <Form.Control type={type} placeholder="Enter Password" />
+        <input id='show-password' type='checkbox'/> <span>{display} Password</span>
       </Form.Group>
       <Button variant="secondary" type="submit" onClick={handleSubmit}>
         Login!

@@ -45,10 +45,15 @@ function CreateUser() {
       axios.post(url+'/create-user', user).then(response => {
         if(response.data === 'Request successful.'){
           axios.get(url+`/user/${username.value}`).then(response => {
+            console.log('rest')
             if(response.data != null){
               console.log(response.data);
+              localStorage.setItem('user', JSON.stringify(response.data))
               dispatch(setCurrentUser(response.data))
             }
+
+          }).catch(err => {
+            console.log(err)
           })
         }
       }).catch(error => {
@@ -57,8 +62,8 @@ function CreateUser() {
         }
       })
       }
-
   }
+
   return (
     <Form className="createUserForm">
         <div className="formLogo">
