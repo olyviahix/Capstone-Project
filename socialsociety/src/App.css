@@ -1,18 +1,18 @@
 .App {
   text-align: center;
 }
-
 .createUserForm {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 550px;
+  height: 575px;
   border: 2px solid black;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
-  border-style:solid;
+  border-style: solid;
+  box-shadow: 1px 2px 2px 1px black;
 }
 .loginForm{
   display: flex;
@@ -24,6 +24,7 @@
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
+  box-shadow: 1px 2px 2px 1px black;
 }
 .dontHaveAccount {
   display: flex;
@@ -35,19 +36,7 @@
   padding-right: 18px;
 }
 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
 
@@ -57,23 +46,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .formLogo {
   display: flex;
   flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
-}
 .userPost{
-  width: 300px;
+  width: 400px;
   height: 200px;
   border: 2px solid black;
   padding-top: 10px;
   border-radius: 20px;
 }
+/* Amir CSS */
 @media only screen and (max-width: 1097px){
   .main {
     display: flex;
@@ -120,21 +107,58 @@
 }
 .content, .right-content {
   display: flex;
+  background: #000;
   flex-direction: column;
   align-items: center;
   text-align: center;
   overflow: auto;
-  width: 100%;
   height: 100vh;
   transition: all .5s;
 }
-
+.right-content {
+  width: 40%;
+}
+.content {
+  width: 60%;
+  border-right: .02px solid #ccc;
+}
+.post-button {
+  background: rgba(128, 128, 128, .3);
+  width: 6.5rem;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+}
+.post-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.post-button:hover {
+  background: rgba(103, 102, 102, 0.3);
+  transform: scale(1.1,1.1);
+  transition: smooth .5s;
+}
+.pointer {
+  font-size: 2rem;
+}
+.pointer:hover {
+  transform: scale(1.5,1.5);
+  cursor: pointer;
+}
 .fixed-container, .fixed-container-right {
   position: sticky;
   top: 0;
   width: 100%;
   background: #000;
   color: #fff;
+  z-index: 1;
+  border-bottom: .02px solid #ccc;
 }
 .post-section, .post-section-right {
   display: flex;
@@ -145,19 +169,13 @@
 .content::-webkit-scrollbar {
   display: none;
 }
-/* .side-container {
-  display: flex;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-} */
 .sidebar {
   background: #000;
   color: #fff;
   height: 100vh;
-  width: 300px;
+  width: 275px;
   transition: all 0.5s;
-  border-right: 1px solid rgb(169, 30, 30);
+  border-right: .02px solid #ccc;
 }
 .top_section {
   display: flex;
@@ -183,7 +201,7 @@
   color: #fff;
   padding: 10px 15px;
   text-decoration: none;
-  gap: 15px;
+  gap: 10px;
   margin-left: 40px;
   transition: all 0.5s;
 }
@@ -192,14 +210,15 @@
   color: #fff;
 }
 .button {
-  border: lightskyblue !important;
+  border: rgba(103, 102, 102, 0.3) !important;
   color: #000 !important;
-  background: lightskyblue !important;
+  background: rgba(103, 102, 102, 0.3) !important;
+  width: 8rem;
 }
 
 .button:hover {
-  background-color: rgb(66, 130, 169) !important;
-  transition: all 0.5s !important;
+  background: rgba(82, 81, 81, 0.549) !important;
+  transition: smooth 0.5s !important;
 }
 .icon, .link_text {
   font-size: 20px;
@@ -219,21 +238,52 @@
 
 .footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   font-size: 20px;
-  margin-top: 170px;
   transition: all 0.5s;
 } 
 .profile:hover {
   cursor: pointer;
 }
+.textarea-post {
+  text-align: left;
+  color: #fff;
+  background: #000;
+  border: none;
+  /* max-width: 100%; */
+  min-height: 17px;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 70%;
+  font-size: 17px;
+}
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  color: lightgrey;
+}
+.textarea-post:focus {
+  outline: none;
+}
 
 .plus-icon {
   font-size: 20px;
 }
+.glowing-border {
+  border: 2px solid red;
+  border-radius: 7px;
+}
 
+* {
+  font-family: 'Fira Sans', sans-serif;
+  /* color: black; */
+  margin: 0;
+  padding: 0;
+}
 /* Erecks css */
 .ProfileBox {
   display: flex;
