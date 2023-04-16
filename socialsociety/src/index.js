@@ -13,6 +13,7 @@ import { store } from './app/store';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import CreateUserPage from './pages/CreateUserPage';
+import SettingsPage from './pages/SettingsPage';
 
 const container = document.getElementById('root');
 const root = createRoot(container, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: 'createuser',
     element: <CreateUserPage/>
+  },
+  {
+    path: 'settings',
+    element: <SettingsPage/>
   }
 ]);
 

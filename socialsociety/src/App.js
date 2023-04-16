@@ -15,7 +15,8 @@ function App() {
       dispatch(setCurrentUser(foundUser));
     }
   }, 
-  [])
+  []);
+  
   if(loggedInUser === null){
     return (
       <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>

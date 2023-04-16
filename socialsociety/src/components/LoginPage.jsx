@@ -13,7 +13,16 @@ function LoginPage() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const [display, setDisplay] = useState('Show');
-
+  
+  const showAndHide = () => {
+    if(document.getElementById('show-password').checked){
+      setType('text');
+      setDisplay('Hide');
+    }else{
+      setType('password');
+      setDisplay('Show');
+    }
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = document.getElementById('formUsername').value;
@@ -32,7 +41,7 @@ function LoginPage() {
   return (
     <Form className="loginForm">
         <div className="formLogo">
-            <img src={Logo_Full}/>
+            <img alt="logo" src={Logo_Full}/>
         </div>
       <Form.Group className="mb-3" controlId="formUsername">
         <Form.Label>Username</Form.Label>
@@ -44,7 +53,7 @@ function LoginPage() {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type={type} placeholder="Enter Password" />
-        <input id='show-password' type='checkbox'/> <span>{display} Password</span>
+        <input id='show-password' type='checkbox' onChange={showAndHide}/> <span>{display} Password</span>
       </Form.Group>
       <Button variant="secondary" type="submit" onClick={handleSubmit}>
         Login!

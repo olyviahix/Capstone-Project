@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { openLogOut, setToggle } from "../features/toggleSlice";
+import { openLogOut } from "../features/toggleSlice";
 import { Link } from "react-router-dom";
 import { currentUser } from "../features/loggedUserSlice";
 
@@ -43,7 +43,7 @@ export default function SideBar() {
         <div className="side-container">
             <div className="sidebar" id='resp-sidebar'>
                 <div className="top_section" id='top-sidebar'>
-                    <h1 className="logo">(Logo)</h1>
+                    <h1 className="logo">Logo</h1>
                 </div>
                 {
                     navItem.map((item, index)=>(
@@ -61,7 +61,7 @@ export default function SideBar() {
                                 <div className="link_text">Logout</div>
                             </div>
                 </Link>
-                <div className="footer">
+                <div className="footer" id="mobile-footer">
                     <i class="bi bi-person-circle"></i>
                     <span>{loggedUser.username}</span>
                 </div>

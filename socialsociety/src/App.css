@@ -93,11 +93,15 @@
   }
   #resp-sidebar > .link {
     display: flex;
+    align-items: center;
     flex-direction: row;
     padding: 5px;
     margin: 0 auto;
   }
   .link_text{
+    display: none;
+  }
+  #mobile-footer {
     display: none;
   }
 }
@@ -241,6 +245,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-left: 4em;
+  padding-bottom: 3em;
   gap: 20px;
   font-size: 20px;
   transition: all 0.5s;
