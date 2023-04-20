@@ -36,18 +36,6 @@
   padding-right: 18px;
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
 .formLogo {
   display: flex;
   flex-direction: column;
@@ -74,6 +62,7 @@
     position: sticky;
     width: 100vw;
     border: none;
+    text-align: center;
   }
   #right-section{
     display: none;
@@ -148,6 +137,32 @@
   transform: scale(1.1,1.1);
   transition: smooth .5s;
 }
+.post-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+.icon-interact:hover {
+  cursor: pointer;
+  transform: scale(1.1,1.1);
+}
+.settings-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 4rem;
+  color: #fff;
+  padding: 0 10px;
+}
+.settings-options:hover {
+  background: rgba(128, 128, 128, .3);
+  transition: all .5s;
+  cursor: pointer;
+}
 .pointer {
   font-size: 2rem;
 }
@@ -160,6 +175,7 @@
   top: 0;
   width: 100%;
   background: #000;
+  text-align: center;
   color: #fff;
   z-index: 1;
   border-bottom: .02px solid #ccc;
@@ -255,6 +271,21 @@
 } 
 .profile:hover {
   cursor: pointer;
+}
+.image-cont {
+  width: 60%;
+  height: auto;
+  overflow-y: auto;
+  border-radius: 40px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+.image-src {
+  display: none;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 .textarea-post {
   text-align: left;

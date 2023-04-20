@@ -3,14 +3,25 @@ import { useSelector } from "react-redux";
 import { openLogOut } from "../features/toggleSlice";
 import { Link } from "react-router-dom";
 import { currentUser } from "../features/loggedUserSlice";
+import { useEffect } from 'react';
+import { setCurrentUser } from "../features/loggedUserSlice";
 
 export default function SideBar() {
 
-    const loggedUser = useSelector(currentUser);
     const dispatch = useDispatch();
+    useEffect(()=> {
+        const foundUser = localStorage.getItem('user');
+        const user = JSON.parse(foundUser)
+        if(foundUser != null){
+            dispatch(setCurrentUser(user));
+        }
+    }, []);
+
+    const loggedUser = useSelector(currentUser);
     const logout = () => {
         dispatch(openLogOut());
     }
+
 
     const navItem = [
         {
@@ -63,7 +74,7 @@ export default function SideBar() {
                 </Link>
                 <div className="footer" id="mobile-footer">
                     <i class="bi bi-person-circle"></i>
-                    <span>{loggedUser.username}</span>
+                    <span>{loggedUser.firstName}</span>
                 </div>
             </div>
         </div>

@@ -9,13 +9,14 @@ import { currentUser } from './features/loggedUserSlice';
 function App() {
   const dispatch = useDispatch();
   const loggedInUser = useSelector(currentUser);
+
   useEffect(()=> {
-    const foundUser = JSON.parse(localStorage.getItem('user'));
+    const foundUser = localStorage.getItem('user');
+    const user = JSON.parse(foundUser)
     if(foundUser != null){
-      dispatch(setCurrentUser(foundUser));
+        dispatch(setCurrentUser(user));
     }
-  }, 
-  []);
+  }, []);
   
   if(loggedInUser === null){
     return (
