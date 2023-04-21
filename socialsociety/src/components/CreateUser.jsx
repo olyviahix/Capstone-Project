@@ -44,7 +44,7 @@ function CreateUser() {
       }
       axios.post(url+'/create-user', user).then(response => {
         if(response.data === 'Request successful.'){
-          console.log(response.data);
+    
           axios.get(url+`/user/${username.value}`).then(response => {
             console.log('rest')
             if(response.data != null){

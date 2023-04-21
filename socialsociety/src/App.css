@@ -76,6 +76,7 @@
     width: 100%;
     height: 55px;
     border: none;
+    z-index: 1;
   }
   #top-sidebar {
     display: none;

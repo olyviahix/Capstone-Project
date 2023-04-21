@@ -1,9 +1,15 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addNewPosts } from '../features/postSlice';
+import { currentUser } from '../features/loggedUserSlice';
+import axios from 'axios';
 
 export default function AddPosts() {
 
-    
+    const url = 'http://localhost:7000';
+    const loggedInUser = useSelector(currentUser)
+    const dispatch = useDispatch();
     const maxChar = 280
     const input = document.getElementById('file-upload');
     const [progress, setProgress] = useState(0);
@@ -12,7 +18,6 @@ export default function AddPosts() {
         const display = document.getElementById('display-image');
         const file = input.files;
 
-        console.log(file);
         display.setAttribute('src', URL.createObjectURL(file[0]))
         display.style.display = 'block';
     }
@@ -47,11 +52,41 @@ export default function AddPosts() {
         const postBtn = document.querySelector('post-button');
         const textarea = document.getElementById('textarea-char');
         const display = document.getElementById('display-image');
+        const uuid = crypto.randomUUID()
+
         if((textarea.innerText.length <= 0) && 
-        (display.style.display === '' || display.style.display === 'none')){
+            (display.style.display === '' || display.style.display === 'none')){
+
             console.log('cannot post')
+
         }else{
-            axios.post()
+
+            const file = input.files;
+            
+            const addPost = {
+                content: textarea.innerText,
+                username: loggedInUser.username,
+                images: (file[0] != null ? file[0].name : 'none'),
+                likes: '0',
+                uuid: uuid
+            }
+
+            axios.post(url+'/create-post', addPost).then(response => {
+                console.log('api call')
+                if(response.data === 'Success.'){
+                    console.log('Post added successfully')
+                    textarea.innerText = ''
+                    display.removeAttribute('src')
+                    display.style.display = 'none' 
+                    input.value = ''
+
+                    axios.get(url+`/post/${addPost.uuid}`).then(response => {
+                        if(response.data !== 'Request failed.'){
+                            dispatch(addNewPosts(response.data));
+                        }
+                    })
+                }
+            })
         }
     }
 
@@ -79,7 +114,7 @@ export default function AddPosts() {
                             <span id='charCount'>{maxChar}</span>
                         </div>
                         <div>
-                            <button className="post-button" onClick={post}><i className="bi bi-plus-lg plus-icon"></i> POST</button>
+                            <button className="post-button" onClick={post}><i className="bi bi-plus-lg plus-icon"></i> <span>POST</span></button>
                         </div>
                     </div>
                 </div>

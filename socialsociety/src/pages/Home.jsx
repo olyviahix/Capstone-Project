@@ -3,9 +3,13 @@ import SideBar from "../components/Sidebar";
 import PostContent from "../components/PostContent";
 import '../App.css';
 import LogOutModal from "../components/LogOutModal";
+import { useSelector } from "react-redux";
+import { getPosts } from "../features/postSlice";
 
 
 export default function Home() {
+    const posts = useSelector(getPosts);
+
     return (
         <div class='main'>
             <SideBar/>
@@ -15,29 +19,12 @@ export default function Home() {
                     <AddPosts/>
                 </div>
                 <div className='post-section'>
-                    <PostContent/>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
-                    <div><p>Post</p></div>
+                    {
+                        posts.map((item, index)=> (
+                            <PostContent username={item.username} content={item.content} key={index}/>
+                        ))
+                    }
+                    
                 </div>
             </div>
             <div className='right-content' id='right-section'>
