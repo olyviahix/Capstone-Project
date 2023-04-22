@@ -17,6 +17,7 @@ export default function AddPosts() {
     const uploadImage = () => {
         const display = document.getElementById('display-image');
         const file = input.files;
+        
 
         display.setAttribute('src', URL.createObjectURL(file[0]))
         display.style.display = 'block';
@@ -62,11 +63,13 @@ export default function AddPosts() {
         }else{
 
             const file = input.files;
-            
+            const formData = new FormData();
+            formData.append('image', file[0])
+
             const addPost = {
                 content: textarea.innerText,
                 username: loggedInUser.username,
-                images: (file[0] != null ? file[0].name : 'none'),
+                images: (file[0] != null ? formData : 'none'),
                 likes: '0',
                 uuid: uuid
             }
@@ -83,6 +86,7 @@ export default function AddPosts() {
                     axios.get(url+`/post/${addPost.uuid}`).then(response => {
                         if(response.data !== 'Request failed.'){
                             dispatch(addNewPosts(response.data));
+                            console.log(response.data);
                         }
                     })
                 }
@@ -93,31 +97,35 @@ export default function AddPosts() {
     return (
         <div style={{border: '2px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <h3>Posts</h3>
-            <div className="textarea-post" id='textarea-char' contentEditable='true' placeholder="What's happening? (Type text here.)" onKeyUp={countChar}></div>
+            
+                
+                <div className="textarea-post" id='textarea-char' contentEditable='true' placeholder="What's happening? (Type text here.)" onKeyUp={countChar}></div>
 
-                <div className='image-cont'>
-                    <img id='display-image' className='image-src'/>
-                </div>
-                <div className="post-options">
-                    <div style={{display: 'flex', gap: '1rem', alignItems: 'center', width: '100%', justifyContent: 'center'}}>
-                        <label for='file-upload' className='pointer' onChange={uploadImage}>
-                            <i className="bi bi-image-fill pointer">
-                                <input id='file-upload' type='file' accept='image/jpeg, image/png, image/jpg' style={{display: 'none'}}/>
-                            </i>
-                        </label>
-                        <div style={{display: 'flex', gap: '1rem'}}>
-                            <i className="bi bi-emoji-smile-fill pointer"></i>
-                            <i id='closeButton' class="bi bi-x-circle-fill pointer" onClick={removeImage}></i>
-                        </div>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '8rem'}}>
-                            <ProgressBar style={{width: '4rem'}} now={progress}  max={maxChar}/>
-                            <span id='charCount'>{maxChar}</span>
-                        </div>
-                        <div>
-                            <button className="post-button" onClick={post}><i className="bi bi-plus-lg plus-icon"></i> <span>POST</span></button>
+                    <div className='image-cont'>
+                        <img id='display-image' className='image-src'/>
+                    </div>
+                    <div className="post-options">
+                        <div style={{display: 'flex', gap: '1rem', alignItems: 'center', width: '100%', justifyContent: 'center'}}>
+                                <label for='file-upload' className='pointer' onChange={uploadImage}>
+                                    <i className="bi bi-image-fill pointer">
+                                        <input id='file-upload' name='postImage' type='file' accept='image/jpeg, image/png, image/jpg' style={{display: 'none'}}/>
+                                    </i>
+                                </label>
+                            <div style={{display: 'flex', gap: '1rem'}}>
+                                <i className="bi bi-emoji-smile-fill pointer"></i>
+                                <i id='closeButton' class="bi bi-x-circle-fill pointer" onClick={removeImage}></i>
+                            </div>
+                            <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '8rem'}}>
+                                <ProgressBar style={{width: '4rem'}} now={progress}  max={maxChar}/>
+                                <span id='charCount'>{maxChar}</span>
+                            </div>
+                            <div>
+                                <button className="post-button" type='submit' onClick={post}><i className="bi bi-plus-lg plus-icon"></i> <span>POST</span></button>
+                            </div>
+            
                         </div>
                     </div>
-                </div>
+         
         </div>
     )
 }

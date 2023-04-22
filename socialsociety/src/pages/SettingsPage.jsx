@@ -12,7 +12,7 @@ export default function SettingsPage() {
     const dispatch = useDispatch();
     const chosenOption = useSelector(setToggle);
     const loggedInUser = useSelector(currentUser);
-    let [component, setComponent] = useState('');
+    let [component, setComponent] = useState(null);
 
     useEffect(()=> {
         const foundUser = localStorage.getItem('user');
@@ -64,7 +64,7 @@ export default function SettingsPage() {
             </div>
             <div className='right-content' id='right-section' style={{width: '60%'}}>
                 <div className='post-section-right'>
-                    {component}
+                    <AccountInfo/>
                 </div>
             </div>
         </div>
