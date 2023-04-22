@@ -50,7 +50,7 @@ function LoginPage() {
         Login!
       </Button>
       <br></br>
-      <div class="dontHaveAccount">
+      <div className="dontHaveAccount">
         <h6>Dont Have an Account? </h6>
             <Link variant="secondary" type="submit" to={'/createuser'}>
                 Sign Up!

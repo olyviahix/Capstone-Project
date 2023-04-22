@@ -14,9 +14,9 @@ function PostContent() {
           bulk of the card's content.
         </Card.Text>
       </Card.Body>
-      <Card.Body class="icons">
-      <button class="bi-heart-fill"></button>
-      <button class="bi-chat-left-fill"></button>
+      <Card.Body className="icons">
+      <button className="bi-heart-fill"></button>
+      <button className="bi-chat-left-fill"></button>
       </Card.Body>
     </Card>
     

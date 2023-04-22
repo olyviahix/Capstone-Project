@@ -2,9 +2,11 @@
 function FollowMe() {
     return(
         <div className = 'Follow'>
-            Followers: 
-            Following:
-            Post:
+            <p> 
+                Followers: 0
+                Following: 0
+                Post: 0
+            </p>
         </div>
     )
 }

@@ -67,7 +67,7 @@ function CreateUser() {
   return (
     <Form className="createUserForm">
         <div className="formLogo">
-            <img src={Logo_Full}/>
+            <img src={Logo_Full} alt = 'logo'/>
         </div>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridFirstName">
@@ -98,7 +98,7 @@ function CreateUser() {
       <Button variant="secondary" type='submit' onClick={handleSubmit}>
         Create User
       </Button>
-      <div class="dontHaveAccount">
+      <div className="dontHaveAccount">
         <h6>Have an Account already? </h6>
             <Link variant="secondary" type="submit" to={'/'}>
                 Log In!

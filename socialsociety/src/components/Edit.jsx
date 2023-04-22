@@ -16,7 +16,9 @@ function Edit() {
     return (
         <div className = 'edit'>
             <h2>Edit Profile</h2>
+
             <form onSubmit = {handleSubmit}>
+
                 <label>Edit User Name:</label>
                 <input 
                     type = 'text' 

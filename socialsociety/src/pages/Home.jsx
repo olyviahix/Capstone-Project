@@ -7,7 +7,7 @@ import LogOutModal from "../components/LogOutModal";
 
 export default function Home() {
     return (
-        <div class='main'>
+        <div className="main">
             <SideBar/>
             <LogOutModal/>
             <div id="mobile-content" className='content' >

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { openLogOut, setToggle } from "../features/toggleSlice";
 import { Link } from "react-router-dom";
 import { currentUser } from "../features/loggedUserSlice";
+import SS_Logo from '../Images/SS_Logo(white).png'
 
 export default function SideBar() {
 
@@ -15,27 +16,27 @@ export default function SideBar() {
     const navItem = [
         {
         path: '/',
-        icon: <i class="bi bi-grid-3x3-gap-fill"></i>,
+        icon: <i className="bi bi-grid-3x3-gap-fill"></i>,
         linkText: 'Home'
         },
     {
         path: '/profile',
-        icon: <i class="bi bi-person-circle profile" ></i>,
+        icon: <i className="bi bi-person-circle profile" ></i>,
         linkText: 'Profile'
     },
     {
         path: '/notification',
-        icon: <i class="bi bi-bell-fill"></i>,
+        icon: <i className="bi bi-bell-fill"></i>,
         linkText: 'Notifications'
     },
     {
         path: '/messages',
-        icon: <i class="bi bi-chat-left-fill"></i>,
+        icon: <i className="bi bi-chat-left-fill"></i>,
         linkText: 'Messages'
     },
     {
         path: '/settings',
-        icon: <i class="bi bi-gear-fill profile" ></i>,
+        icon: <i className="bi bi-gear-fill profile" ></i>,
         linkText: 'Settings'
     }
     ]
@@ -43,7 +44,7 @@ export default function SideBar() {
         <div className="side-container">
             <div className="sidebar" id='resp-sidebar'>
                 <div className="top_section" id='top-sidebar'>
-                    <h1 className="logo">(Logo)</h1>
+                    <img className="logo" src = {SS_Logo} alt = 'logo'></img>
                 </div>
                 {
                     navItem.map((item, index)=>(
@@ -57,13 +58,13 @@ export default function SideBar() {
                 }
                 <Link className='link'>
                             <div className='navItem' onClick={logout}>
-                                <div className="icon"><i class="bi bi-box-arrow-left profile"></i></div>
+                                <div className="icon"><i className="bi bi-box-arrow-left profile"></i></div>
                                 <div className="link_text">Logout</div>
                             </div>
                 </Link>
                 <div className="footer">
-                    <i class="bi bi-person-circle"></i>
-                    <span>{loggedUser.username}</span>
+                    <i className="bi bi-person-circle"></i>
+                    {/* <span>{loggedUser.username}</span> */}
                 </div>
             </div>
         </div>
