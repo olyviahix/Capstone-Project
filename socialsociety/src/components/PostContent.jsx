@@ -9,9 +9,6 @@ function PostContent(props) {
     <Card className="userPost">
       <Card.Body>
         <Card.Title>{props.username}</Card.Title>
-        <Card.Img>
-          { props.children }
-        </Card.Img>
         <Card.Text>
           {props.content}
         </Card.Text>

@@ -21,7 +21,7 @@ export default function Home() {
                 <div className='post-section'>
                     {
                         posts.map((item, index)=> (
-                            <PostContent username={item.username} content={item.content} key={index}/>
+                            <PostContent username={item.username} content={item.content} key={index}/> 
                         ))
                     }
                     

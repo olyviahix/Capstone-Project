@@ -1,9 +1,30 @@
 import {  createSlice } from '@reduxjs/toolkit';
+import AccountInfo from '../components/AccountInformation';
+import DeactivateAccount from '../components/DeactivateAccount';
+import SettingsInterest from '../components/SettingsInterest';
 
 const initialState = {
     value: {
         logOutModal: false,
-        settingsTab: ''
+        deleteModal: false,
+        settingsTab: [
+            {
+                name: 'Account information',
+                element: <AccountInfo/>
+            },
+            {
+                name: 'Change password'
+            },
+            {
+                name: 'Your interests',
+                element: <SettingsInterest/>
+            },
+            {
+                name: 'Deactivate account',
+                element: <DeactivateAccount/>
+            }
+        ],
+        settingElement: null,
     }
 }
 
@@ -15,12 +36,19 @@ export const toggleSlice = createSlice({
             state.value.logOutModal = !state.value.logOutModal;
         }, 
         settingsChosen: (state, action) => {
-            state.value.settingsTab = action.payload;
+            state.value.settingsTab.map((item, index) => {
+                if(action.payload === item.name){
+                    state.value.settingElement = item.element;
+                }
+            })
+        },
+        openDeleteModal: (state) => {
+            state.value.deleteModal = !state.value.deleteModal;
         }
     }
 });
 
-export const { openLogOut, settingsChosen } = toggleSlice.actions;
+export const { openLogOut, settingsChosen, openDeleteModal } = toggleSlice.actions;
 
 export const setToggle = (state) => state.toggle.value;
 

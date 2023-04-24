@@ -3,6 +3,7 @@ import LogOutModal from "../components/LogOutModal"
 import SettingsTab from "../components/SettingsTab"
 import LoginPage from "../components/LoginPage";
 import AccountInfo from "../components/AccountInformation";
+import DeleteAccountModal from "../components/DeleteAccountModal";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { setCurrentUser, currentUser } from "../features/loggedUserSlice";
@@ -36,9 +37,7 @@ export default function SettingsPage() {
         name: 'Deactivate account'
     }
     ]
-    if(chosenOption.settingsTab === 'Account Information'){
-        setComponent(<AccountInfo/>)
-    }
+    
     if(loggedInUser === null){
         return (
         <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>
@@ -50,9 +49,10 @@ export default function SettingsPage() {
         <div class='main'>
             <SideBar/>
             <LogOutModal/>
+            <DeleteAccountModal/>
             <div id="mobile-content" className='content' style={{width: '40%'}}>
                 <div id='mobile-fixed' className='fixed-container' style={{border: 'none', margin: '20px 0'}}>
-                    <h3>Settings</h3>
+                    <h3 style={{fontWeight: 'bold'}}>Settings</h3>
                 </div>
                 <div className='post-section' style={{textAlign: 'left', width: '100%', gap: '2rem', marginTop: '50px'}}>
                 {
@@ -64,7 +64,7 @@ export default function SettingsPage() {
             </div>
             <div className='right-content' id='right-section' style={{width: '60%'}}>
                 <div className='post-section-right'>
-                    <AccountInfo/>
+                    <div>{chosenOption.settingElement}</div>
                 </div>
             </div>
         </div>

@@ -7,6 +7,6 @@ export default function SettingsTab(props) {
         <div className="settings-options" onClick={()=> {dispatch(settingsChosen(props.setting))}}>
             <div>{props.setting}</div>
             <i class="bi bi-caret-right-fill"></i>
-        </div>
+        </div> 
     )
 }

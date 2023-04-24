@@ -160,6 +160,9 @@
   color: #fff;
   padding: 0 10px;
 }
+.settings-account {
+  color: #fff;
+}
 .settings-options:hover {
   background: rgba(128, 128, 128, .3);
   transition: all .5s;
