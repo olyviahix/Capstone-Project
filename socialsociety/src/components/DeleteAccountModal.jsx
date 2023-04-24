@@ -18,10 +18,15 @@ export default function DeleteAccountModal(){
 
     const destroyAccount = async () => {
         const user = loggedInUser.username
-        const response = await axios.delete(url+`/delete/${user}`)
-        if(response.data === 'Success.'){
-            localStorage.clear()
-            dispatch(resetUser())
+        try {
+            const response = await axios.delete(url+`/delete/${user}`)
+            if(response.data === 'Success.'){
+                localStorage.clear()
+                dispatch(resetUser())
+                dispatch(openDeleteModal())
+            }
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -32,7 +37,7 @@ export default function DeleteAccountModal(){
                     This will be permanent.
                 </Modal.Body>
                 <Modal.Footer style={{justifyContent: 'center', flexDirection: 'column'}}>
-                    <Button className="button" >Yes</Button>
+                    <Button className="button" onClick={destroyAccount}>Yes</Button>
                     <Button className="button" onClick={hide}>No</Button>
                 </Modal.Footer>
         </Modal>

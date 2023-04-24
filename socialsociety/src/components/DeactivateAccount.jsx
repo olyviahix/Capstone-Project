@@ -13,14 +13,7 @@ export default function DeactivateAccount() {
     const open = () => {
         dispatch(openDeleteModal())
     }
-    const destroyAccount = async () => {
-        const user = loggedInUser.username
-        const response = await axios.delete(url+`/delete/${user}`)
-        if(response.data === 'Success.'){
-            localStorage.clear()
-            dispatch(resetUser())
-        }
-    }
+    
     return (
         <div className="settings-account" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <h5 style={{display: 'flex', gap: '1rem', alignItems: 'center', fontWeight: 'bold'}}>

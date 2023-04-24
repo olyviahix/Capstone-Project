@@ -162,6 +162,7 @@
 }
 .settings-account {
   color: #fff;
+  width: 270px;
 }
 .settings-options:hover {
   background: rgba(128, 128, 128, .3);
