@@ -2,6 +2,7 @@ import {  createSlice } from '@reduxjs/toolkit';
 import AccountInfo from '../components/AccountInformation';
 import DeactivateAccount from '../components/DeactivateAccount';
 import SettingsInterest from '../components/SettingsInterest';
+import ChangePassword from '../components/ChangePassword';
 
 const initialState = {
     value: {
@@ -13,14 +14,15 @@ const initialState = {
                 element: <AccountInfo/>
             },
             {
-                name: 'Change password'
+                name: 'Change password',
+                element: <ChangePassword/>
             },
             {
                 name: 'Your interests',
                 element: <SettingsInterest/>
             },
             {
-                name: 'Deactivate account',
+                name: 'Delete account',
                 element: <DeactivateAccount/>
             }
         ],

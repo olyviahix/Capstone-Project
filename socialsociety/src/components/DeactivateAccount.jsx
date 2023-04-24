@@ -16,7 +16,7 @@ export default function DeactivateAccount() {
     
     return (
         <div className="settings-account" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <h5 style={{display: 'flex', gap: '1rem', alignItems: 'center', fontWeight: 'bold'}}>
+            <h5 style={{display: 'flex', gap: '1rem', alignItems: 'center', fontWeight: 'bold', width: '25rem'}}>
                 <i class="bi bi-exclamation-triangle-fill"></i>
                 <span>Deleting your account is permanent.</span>
             </h5>

@@ -1,14 +1,15 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { openLogOut } from "../features/toggleSlice";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { currentUser } from "../features/loggedUserSlice";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setCurrentUser } from "../features/loggedUserSlice";
 
 export default function SideBar() {
 
     const dispatch = useDispatch();
+    const [active, setActive] = useState(null);
     useEffect(()=> {
         const foundUser = localStorage.getItem('user');
         const user = JSON.parse(foundUser)
@@ -59,7 +60,7 @@ export default function SideBar() {
                 {
                     navItem.map((item, index)=>(
                         <Link to={item.path} key={index} className='link'>
-                            <div className='navItem'>
+                            <div className={`navItem ${active == item ? "active" : ''}`} onClick={()=> {setActive(item)}}>
                                 <div className="icon">{item.icon}</div>
                                 <div className="link_text">{item.linkText}</div>
                             </div>

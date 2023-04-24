@@ -34,7 +34,7 @@ export default function SettingsPage() {
         name: 'Your interests'
     },
     {
-        name: 'Deactivate account'
+        name: 'Delete account'
     }
     ]
     
@@ -46,7 +46,7 @@ export default function SettingsPage() {
         )
     }
     return (
-        <div class='main'>
+        <div class='main' id="settings-main">
             <SideBar/>
             <LogOutModal/>
             <DeleteAccountModal/>
@@ -62,7 +62,7 @@ export default function SettingsPage() {
                 } 
                 </div>
             </div>
-            <div className='right-content' id='right-section' style={{width: '60%'}}>
+            <div className='right-content'  style={{width: '60%'}}>
                 <div className='post-section-right'>
                     <div>{chosenOption.settingElement}</div>
                 </div>
