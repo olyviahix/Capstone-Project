@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { setCurrentUser, currentUser } from "../features/loggedUserSlice";
 import LoginPage from "../components/LoginPage";
+import MessageField from "../components/MessageField";
 
 export default function Messages() {
     
@@ -27,11 +28,11 @@ export default function Messages() {
     return (
         <div className='main'>
             <SideBar/>
-            <div className="content">
+            <div className="content" style={{width: '30%'}}>
                 <h2>Incoming Messages</h2>
             </div>
-            <div className='right-content'>
-                
+            <div className='right-content' style={{width: '70%'}}>
+                <MessageField/>
             </div>
         </div>
     )

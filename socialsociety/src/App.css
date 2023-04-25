@@ -110,7 +110,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow: auto;
+  overflow-y: auto;
   height: 100vh;
   transition: all .5s;
 }
@@ -252,6 +252,7 @@
 }
 .icon, .link_text {
   font-size: 20px;
+  font-weight: bolder;
 }
 .navItem {
   display: flex;
@@ -302,6 +303,29 @@
   height: 300px;
   object-fit: cover;
 }
+.message-btn {
+  background: none;
+  border: none;
+}
+.message-container {
+  background: rgb(163, 162, 162);
+  border-radius: 2rem;
+  max-height: 20%;
+  margin: 0 10px;
+}
+.message-post {
+  text-align: left;
+  color: #000;
+  background: rgb(163, 162, 162);
+  border: none;
+  min-height: 17px;
+  max-height: 95%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 70%;
+  font-size: 1.5em;
+  border-radius: 3px;
+}
 .textarea-post {
   text-align: left;
   color: #fff;
@@ -320,7 +344,7 @@
   pointer-events: none;
   color: lightgrey;
 }
-.textarea-post:focus {
+.textarea-post:focus, .message-post:focus {
   outline: none;
 }
 
