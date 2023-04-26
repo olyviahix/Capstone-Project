@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch();
   const loggedInUser = useSelector(currentUser);
   useEffect(()=> {
+    console.log('hello')
     const foundUser = JSON.parse(localStorage.getItem('user'));
     if(foundUser != null){
       dispatch(setCurrentUser(foundUser));
