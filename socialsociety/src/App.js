@@ -11,7 +11,7 @@ function App() {
   const loggedInUser = useSelector(currentUser);
 
   useEffect(()=> {
-    console.log('hello')
+    
     const foundUser = localStorage.getItem('user');
     const user = JSON.parse(foundUser)
     if(foundUser != null){
