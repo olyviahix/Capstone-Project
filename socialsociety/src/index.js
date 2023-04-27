@@ -15,6 +15,7 @@ import Messages from './pages/Messages';
 import CreateUserPage from './pages/CreateUserPage';
 import FollowPage from './pages/FollowList';
 import Profile from './pages/Profile_copy';
+import SettingsPage from './pages/SettingsPage';
 
 const container = document.getElementById('root');
 const root = createRoot(container, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: 'profile',
     element:<Profile/>
+  },
+  {
+    path: 'settings',
+    element: <SettingsPage/>
   }
 ]);
 
