@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+/* Olyvia CSS */
 .createUserForm {
   display: flex;
   flex-direction: column;
@@ -35,6 +36,54 @@
   padding-left: 45px;
   padding-right: 18px;
 }
+.notifications{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: left;
+  color: #fff;
+  padding: 0 10px;
+  
+}
+.notifications:hover{
+  background: rgba(128, 128, 128, .3);
+  transition: all .5s;
+  cursor: pointer;
+}
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5px;
+}
+.interest-button{
+  width: 75%;
+  background-color: #242122 !important;
+  border-color: #242122 !important;
+}
+.selected-interest-button{
+  background-color: rgb(202, 11, 11) !important;
+}
+.movie-genres{
+  padding: 5px;
+  border: 1px;
+  border-radius: 5px;
+  background-color:rgba(128, 128, 128, .3)
+}
+.music-genres{
+  padding: 5px;
+  border: 1px;
+  border-radius: 5px;
+  background-color:rgba(128, 128, 128, .3)
+}
+.food-quisines{
+  padding: 5px;
+  border: 1px;
+  border-radius: 5px;
+  background-color:rgba(128, 128, 128, .3)
+}
+
 
 /* .App-header {
   background-color: #282c34;
