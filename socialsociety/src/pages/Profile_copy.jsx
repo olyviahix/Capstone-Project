@@ -1,4 +1,3 @@
-// import Bio from '../components/Bio';
 import FollowMe from '../components/FollowMe';
 import Popup from '../components/Popup';
 import { useState } from 'react';
@@ -19,12 +18,11 @@ function Profile() {
     // These are the useStates being used to handle the state changes of the profile
     const [username, setUsername] = useState('');
     const [bio, setBio] = useState('');
-    const [propic, setPropic] = useState('');
 
     //This code will prevent the page from refreshing after clicking the button
     const handleSubmit = (e) => {
         e.preventDefault();
-        const page = { username, bio, propic}
+        const page = { username, bio}
 
         console.log(page);
 
@@ -39,12 +37,12 @@ function Profile() {
         <div className = 'ProfileBox'>
             
                 <CoverPic2 />
-            
+                
 
             <br />
             {/* This code was going to be used to change the username dynamically but went a different route */}
 
-           <p>{propic}</p> 
+                <Avatar /> 
 
            <div className = 'FolMess'>
                 <MessageBtn />
@@ -58,7 +56,7 @@ function Profile() {
                 {/* This code below is for the popup screen which has a separate css file from the App.css */}
                 <button className = 'editBtn' onClick = {() => setButtonPopup(true)}>Edit Profile</button>
             <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
-                {/* <Edit /> */}
+
 
                 {/* This code below was pulled from the Edit.jsx file so it could change the state of the profile without much effort */}
                 <div className = 'edit'>
@@ -66,10 +64,10 @@ function Profile() {
 
                 <form onSubmit = {handleSubmit}>
 
-                    <Avatar
+                    {/* <Avatar
                         value = {propic}
                         onChange={(e) => setPropic(e.target.value)}
-                    />
+                    /> */}
 
                     <label>Edit User Name:</label>
                     <input 
@@ -93,13 +91,10 @@ function Profile() {
             </div>
 
             </Popup>
-            {/* <Bio /> */}
             
-            
-            <p>{bio}</p>
                
 
-                {/* I want to work on the FollowMe component to check how many followers the user have, if not maybe count how many likes the user
+            {/* I want to work on the FollowMe component to check how many followers the user have, if not maybe count how many likes the user
                 has. */}
             <FollowMe /> 
 

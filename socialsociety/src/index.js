@@ -13,6 +13,8 @@ import { store } from './app/store';
 import Home from './pages/Home';
 import Messages from './pages/Messages';
 import CreateUserPage from './pages/CreateUserPage';
+import FollowPage from './pages/FollowList';
+import Profile from './pages/Profile_copy';
 
 const container = document.getElementById('root');
 const root = createRoot(container, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: 'createuser',
     element: <CreateUserPage/>
+  },
+  {
+    path:'follow',
+    element:<FollowPage/>
+  },
+  {
+    path: 'profile',
+    element:<Profile/>
   }
 ]);
 
