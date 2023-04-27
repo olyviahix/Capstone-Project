@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { setCurrentUser, currentUser } from "../features/loggedUserSlice";
 import LoginPage from "../components/LoginPage";
+import LogOutModal from "../components/LogOutModal";
 import MessageField from "../components/MessageField";
 import MessageOptions from "../components/MessageOptions";
 
@@ -29,6 +30,7 @@ export default function Messages() {
     return (
         <div className='main'>
             <SideBar/>
+            <LogOutModal/>
             <div className="content" style={{width: '30%'}}>
                 <MessageOptions/>
             </div>
