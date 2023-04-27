@@ -303,15 +303,37 @@
   height: 300px;
   object-fit: cover;
 }
+.select-options {
+  display: none;
+}
+.search-add {
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #fff;
+}
+.search-add:hover {
+  transform: scale(1.2,1.2);
+  cursor: pointer;
+}
+.message-board {
+  width: 100%;
+  height: 15%;
+  color: #fff;
+}
 .message-btn {
   background: none;
   border: none;
+  color: #fff;
+}
+.message-btn:hover {
+  transform: scale(1.5,1.5);
+  cursor: pointer;
 }
 .message-container {
   background: rgb(163, 162, 162);
-  border-radius: 2rem;
+  border-radius: 10px;
   max-height: 20%;
-  margin: 0 10px;
+  margin: 0 15px;
 }
 .message-post {
   text-align: left;

@@ -3,10 +3,14 @@ import Home from './pages/Home';
 import LoginPage from './components/LoginPage';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentUser } from './features/loggedUserSlice';
-import { currentUser } from './features/loggedUserSlice';
+import { setCurrentUser, currentUser, getAllUsers  } from './features/loggedUserSlice';
+import axios from 'axios';
+// import io from 'socket.io-client'
+// const socket = io.connect('http://localhost:7000')
 
 function App() {
+
+  
   const dispatch = useDispatch();
   const loggedInUser = useSelector(currentUser);
 

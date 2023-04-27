@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { setCurrentUser, currentUser } from "../features/loggedUserSlice";
 import LoginPage from "../components/LoginPage";
 import MessageField from "../components/MessageField";
+import MessageOptions from "../components/MessageOptions";
 
 export default function Messages() {
     
@@ -29,7 +30,7 @@ export default function Messages() {
         <div className='main'>
             <SideBar/>
             <div className="content" style={{width: '30%'}}>
-                <h2>Incoming Messages</h2>
+                <MessageOptions/>
             </div>
             <div className='right-content' style={{width: '70%'}}>
                 <MessageField/>

@@ -2,19 +2,34 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { openLogOut } from "../features/toggleSlice";
 import { Link, NavLink } from "react-router-dom";
-import { currentUser } from "../features/loggedUserSlice";
+import { allUsers, currentUser } from "../features/loggedUserSlice";
 import { useEffect, useState } from 'react';
-import { setCurrentUser } from "../features/loggedUserSlice";
+import { setCurrentUser, getAllUsers } from "../features/loggedUserSlice";
+import axios from "axios";
+
 
 export default function SideBar() {
 
     const dispatch = useDispatch();
+    const url = 'http://localhost:7000';
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get(url+'/all-users')
+            if(response !== null){
+                dispatch(getAllUsers(response.data))
+            }
+        } catch (err) {
+            console.log(err)
+          }
+    }
     const [active, setActive] = useState(null);
     useEffect(()=> {
         const foundUser = localStorage.getItem('user');
         const user = JSON.parse(foundUser)
         if(foundUser != null){
             dispatch(setCurrentUser(user));
+            fetchUsers();
         }
     }, []);
 
