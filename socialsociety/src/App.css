@@ -85,18 +85,6 @@
 }
 
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
 .formLogo {
   display: flex;
   flex-direction: column;
@@ -115,14 +103,20 @@
     display: flex;
     flex-direction: column;
   }
+  #settings-main {
+    display: flex;
+    flex-direction: row;
+  }
   #mobile-content{
     width: 100vw;
     gap: 0;
+    border: none;
   }
   #mobile-fixed {
     position: sticky;
     width: 100vw;
     border: none;
+    text-align: center;
   }
   #right-section{
     display: none;
@@ -136,17 +130,22 @@
     width: 100%;
     height: 55px;
     border: none;
+    z-index: 1;
   }
   #top-sidebar {
     display: none;
   }
   #resp-sidebar > .link {
     display: flex;
+    align-items: center;
     flex-direction: row;
     padding: 5px;
     margin: 0 auto;
   }
   .link_text{
+    display: none;
+  }
+  #mobile-footer {
     display: none;
   }
 }
@@ -160,7 +159,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow: auto;
+  overflow-y: auto;
   height: 100vh;
   transition: all .5s;
 }
@@ -193,6 +192,36 @@
   transform: scale(1.1,1.1);
   transition: smooth .5s;
 }
+.post-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+.icon-interact:hover {
+  cursor: pointer;
+  transform: scale(1.1,1.1);
+}
+.settings-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 4rem;
+  color: #fff;
+  padding: 0 10px;
+}
+.settings-account {
+  color: #fff;
+  width: 270px;
+}
+.settings-options:hover {
+  background: rgba(128, 128, 128, .3);
+  transition: all .5s;
+  cursor: pointer;
+}
 .pointer {
   font-size: 2rem;
 }
@@ -205,6 +234,7 @@
   top: 0;
   width: 100%;
   background: #000;
+  text-align: center;
   color: #fff;
   z-index: 1;
   border-bottom: .02px solid #ccc;
@@ -212,7 +242,7 @@
 .post-section, .post-section-right {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 10px;
   margin-top: 100px;
 }
 .content::-webkit-scrollbar {
@@ -271,12 +301,14 @@
 }
 .icon, .link_text {
   font-size: 20px;
+  font-weight: bolder;
 }
 .navItem {
   display: flex;
   gap: 15px;
   padding: 13px;
   border-radius: 30px;
+  text-decoration: none;
 }
 .navItem:hover {
   background: rgba(128, 128, 128, .3);
@@ -284,18 +316,86 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-
+.active {
+  background: rgba(128, 128, 128, .3);
+  color: #fff;
+  cursor: pointer
+}
 .footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-left: 4em;
+  padding-bottom: 3em;
   gap: 20px;
   font-size: 20px;
   transition: all 0.5s;
 } 
 .profile:hover {
   cursor: pointer;
+}
+.image-cont {
+  width: 60%;
+  height: auto;
+  overflow-y: auto;
+  border-radius: 40px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+.image-src {
+  display: none;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.select-options {
+  display: none;
+}
+.search-add {
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #fff;
+}
+.search-add:hover {
+  transform: scale(1.2,1.2);
+  cursor: pointer;
+}
+.message-board {
+  width: 100%;
+  height: 15%;
+  color: #fff;
+}
+.message-btn {
+  background: none;
+  border: none;
+  color: #fff;
+}
+.message-btn:hover {
+  transform: scale(1.5,1.5);
+  cursor: pointer;
+}
+.message-container {
+  background: rgb(163, 162, 162);
+  border-radius: 10px;
+  max-height: 20%;
+  margin: 0 15px;
+}
+.message-post {
+  text-align: left;
+  color: #000;
+  background: rgb(163, 162, 162);
+  border: none;
+  min-height: 17px;
+  max-height: 95%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 70%;
+  font-size: 1.5em;
+  border-radius: 3px;
 }
 .textarea-post {
   text-align: left;
@@ -315,7 +415,7 @@
   pointer-events: none;
   color: lightgrey;
 }
-.textarea-post:focus {
+.textarea-post:focus, .message-post:focus {
   outline: none;
 }
 
