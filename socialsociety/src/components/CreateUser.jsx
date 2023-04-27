@@ -44,10 +44,10 @@ function CreateUser() {
       }
       axios.post(url+'/create-user', user).then(response => {
         if(response.data === 'Request successful.'){
+    
           axios.get(url+`/user/${username.value}`).then(response => {
             console.log('rest')
             if(response.data != null){
-              console.log(response.data);
               localStorage.setItem('user', JSON.stringify(response.data))
               dispatch(setCurrentUser(response.data))
             }
@@ -67,7 +67,7 @@ function CreateUser() {
   return (
     <Form className="createUserForm">
         <div className="formLogo">
-            <img src={Logo_Full}/>
+            <img alt="logo" src={Logo_Full}/>
         </div>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridFirstName">
