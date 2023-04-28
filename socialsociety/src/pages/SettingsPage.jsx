@@ -4,6 +4,7 @@ import SettingsTab from "../components/SettingsTab"
 import LoginPage from "../components/LoginPage";
 import AccountInfo from "../components/AccountInformation";
 import DeleteAccountModal from "../components/DeleteAccountModal";
+import InterestsModal from '../components/InterestsModal'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { setCurrentUser, currentUser } from "../features/loggedUserSlice";
@@ -50,6 +51,7 @@ export default function SettingsPage() {
             <SideBar/>
             <LogOutModal/>
             <DeleteAccountModal/>
+            <InterestsModal/>
             <div id="mobile-content" className='content' style={{width: '40%'}}>
                 <div id='mobile-fixed' className='fixed-container' style={{border: 'none', margin: '20px 0'}}>
                     <h3 style={{fontWeight: 'bold'}}>Settings</h3>

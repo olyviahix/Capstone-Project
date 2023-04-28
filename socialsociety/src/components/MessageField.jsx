@@ -1,17 +1,22 @@
 import { useState,useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { currentUser, sendThisUser } from '../features/loggedUserSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { getRoom } from '../features/socketRoomsSlice'
+import { currentUser, sendThisUser, addSocket } from '../features/loggedUserSlice'
 import io from 'socket.io-client'
 const socket = io.connect('http://localhost:7000')
 
 export default function MessageField() {
 
+    const dispatch = useDispatch()
     const [text, setText] = useState('')
     const [recieved, setRecieved] = useState('')
     const loggedInUser = useSelector(currentUser)
     const recipientUser = useSelector(sendThisUser)
+    const room = useSelector(getRoom)
 
-    
+    socket.on('connection', ()=> {
+        console.log('Im connected to backend')
+    })
     const sendMessage = ()=> {
         socket.emit('send-message')
     }
@@ -19,19 +24,21 @@ export default function MessageField() {
         const textarea = document.getElementById('textarea-char')
         setText(textarea.innerText)
     }
-    const onSubmit = () => {
+    const onSubmit = async () => {
         const chatBody = {
             message: text,
             author: loggedInUser.username,
             to: recipientUser,
+            room: room,
             time: new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()
         }
-        socket.emit('private', chatBody)
+       await socket.emit('send-message', chatBody)
     }
 
     useEffect(()=> {
         socket.on('recieve-message', (data)=> {
-            setRecieved(data.text)
+            setRecieved(data.message)
+            console.log(data)
         })
     }, [socket])
 

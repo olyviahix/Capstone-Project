@@ -9,11 +9,13 @@ export default function ChangePassword() {
     const dispatch = useDispatch()
     const loggedInUser = useSelector(currentUser)
     const [type, setType] = useState('password')
+    const [confirmation, setConfirmation] = useState('')
    
     const handleEdit = async () => {
         const current = document.getElementById('current-pword').value
         const newPass = document.getElementById('new-pasword').value
         const confirmPass = document.getElementById('confirm-password').value
+        const banner = document.getElementById('banner-message')
         try {
             if(current === loggedInUser.password && newPass === confirmPass){
                 const response = await axios.put(url+`/update-password/${loggedInUser.username}/${confirmPass}`)
@@ -23,6 +25,8 @@ export default function ChangePassword() {
                         localStorage.clear()
                         localStorage.setItem('user', JSON.stringify(getResponse.data))
                         dispatch(setCurrentUser(getResponse.data))
+                        setConfirmation('Password successfully changed.')
+                        banner.style.color = 'green'
                     }
                 }
             }
@@ -56,6 +60,7 @@ export default function ChangePassword() {
                 <input type="checkbox" onChange={toggle}/><span>Show Passwords</span>
             </label>
             <button class="btn btn-light" style={{width: '17rem'}} onClick={handleEdit}>Save Change</button>
+            <span id="banner-message">{confirmation}</span>
         </div>
     )
 }

@@ -31,6 +31,7 @@ export default function AccountInfo() {
                 Last Name: <input type='text' class="form-control me-2" value={loggedInUser.lastName} disabled/>
                         <br/>
                 Email: <input type='text' class="form-control me-2" value={loggedInUser.email} disabled/>
+                Interests: <input type="text" class="form-control me-2"  value={loggedInUser.interests}/>
             </form>
             <p style={{color: '#fff'}}>This information is view only.</p>
         </div>

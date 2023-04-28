@@ -91,7 +91,7 @@ export default function SideBar() {
                 </Link>
                 <div className="footer" id="mobile-footer">
                     <i class="bi bi-person-circle"></i>
-                    <span>{loggedUser.firstName}</span>
+                    {/* <span>{loggedUser.firstName}</span> */}
                 </div>
             </div>
         </div>

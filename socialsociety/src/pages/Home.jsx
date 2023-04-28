@@ -3,6 +3,7 @@ import SideBar from "../components/Sidebar";
 import PostContent from "../components/PostContent";
 import '../App.css';
 import LogOutModal from "../components/LogOutModal";
+import InterestsModal from '../components/InterestsModal'
 import { useSelector } from "react-redux";
 import { getPosts } from "../features/postSlice";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <div className="main">
             <SideBar/>
             <LogOutModal/>
+            <InterestsModal/>
             <div id="mobile-content" className='content' >
                 <div id='mobile-fixed' className='fixed-container'>
                     <AddPosts/>

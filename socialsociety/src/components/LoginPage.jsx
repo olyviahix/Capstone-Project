@@ -13,6 +13,7 @@ function LoginPage() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const [display, setDisplay] = useState('Show');
+  const [ confirmation, setConfirmation] = useState('')
   
   const showAndHide = () => {
     if(document.getElementById('show-password').checked){
@@ -26,15 +27,24 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = document.getElementById('formUsername').value;
+    const password = document.getElementById('show-password').value
+    const banner = document.getElementById("banner-pop")
 
-    axios.get(url+`/user/${username}`).then(response => {
+    axios.get(url+`/user/${username}/${password}`).then(response => {
       const foundUser = response.data;
+      console.log('api call')
       if(foundUser != null){
         localStorage.setItem('user', JSON.stringify(foundUser))
         dispatch(setCurrentUser(foundUser))
+        setConfirmation('Login Successfull.')
+        banner.style.color = 'green'
+      }else {
+        setConfirmation('Login Unsuccessful. Try Again.')
+        banner.style.color = 'red'
       }
     }).catch(err => {
-      console.log(err);
+      setConfirmation('Login Unsuccessful')
+      banner.style.color = 'red'
     })
   }
 
@@ -47,7 +57,7 @@ function LoginPage() {
         <Form.Label>Username</Form.Label>
         <Form.Control type="text" placeholder="Enter Username" />
         <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
+          We'll never share your information with anyone else.
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -64,7 +74,9 @@ function LoginPage() {
             <Link variant="secondary" type="submit" to={'/createuser'}>
                 Sign Up!
             </Link>
+            <span id="banner-pop" style={{marginTop: '3rem'}}>{confirmation}</span>
       </div>
+       
     </Form> 
   );
 }

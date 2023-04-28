@@ -62,14 +62,14 @@ export default function AddPosts() {
 
         }else{
 
-            const file = input.files;
-            const formData = new FormData();
-            formData.append('image', file[0])
+            // const file = input.files;
+            // const formData = new FormData();
+            // formData.append('image', file[0])
 
             const addPost = {
                 content: textarea.innerText,
                 username: loggedInUser.username,
-                images: (file[0] != null ? formData : 'none'),
+                images: 'none',
                 likes: '0',
                 uuid: uuid
             }
@@ -79,11 +79,9 @@ export default function AddPosts() {
                 if(response.data === 'Success.'){
                     console.log('Post added successfully')
                     textarea.innerText = ''
-                    display.removeAttribute('src')
-                    display.style.display = 'none' 
-                    input.value = ''
 
                     axios.get(url+`/post/${addPost.uuid}`).then(response => {
+                        console.log(response.data);
                         if(response.data !== 'Request failed.'){
                             dispatch(addNewPosts(response.data));
                             console.log(response.data);
@@ -97,14 +95,14 @@ export default function AddPosts() {
     return (
         <div style={{border: '2px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <h3>Posts</h3>
-            <div className="textarea-post" contentEditable='true' placeholder="What's happening?"></div>
+            <div id='textarea-char' className="textarea-post" contentEditable='true' placeholder="What's happening?"></div>
             <div className="post-options">
                 <div style={{margin: '15px 0 0 30px', display: 'flex', gap: '2rem'}}>
                     <i className="bi bi-image-fill pointer"></i>
                     <i className="bi bi-emoji-smile-fill pointer"></i>
                 </div>
                 <div>
-                    <button className="post-button"><i className="bi bi-plus-lg plus-icon"></i> POST</button>
+                    <button className="post-button" onClick={post}><i className="bi bi-plus-lg plus-icon"></i> POST</button>
                 </div>
             </div>
         </div>
