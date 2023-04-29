@@ -81,7 +81,7 @@ Once you have started the server and the project is running, you will be brought
 Olyvia Hix:  https://github.com/olyviahix  
 Amir Ali:  https://github.com/satele99   
 Ereck Butler:  https://github.com/Mrstatic13 
-<p float="left">
+<p align="center">
   <img src="https://user-images.githubusercontent.com/116111559/235310355-7290fbdf-5f9b-4cb8-9a04-8017faec776c.JPG" width="200" height="350"/>
   <img src="https://user-images.githubusercontent.com/116111559/235310366-bbcda207-b048-4138-8ccd-8dc900d03d21.jpg" width="200" height="350"/> 
   <img src="https://user-images.githubusercontent.com/116111559/235310379-54e0f770-2455-4995-85ff-17309f9eb8da.jpeg" width="275" height="350" />
