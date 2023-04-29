@@ -58,10 +58,11 @@ liked working in a group setting and colaborating with each team member. He made
 <br>
 
 <p align="center">
- <strong>Here is a code snippit of getting users interests and updating the users interests if added interests or changed interests.</strong>
-</p>
-<p align="center">
   <img width="1000" height="400" src="https://user-images.githubusercontent.com/116111559/235309374-c0481bdd-d165-4d82-8d6a-b8a8227fc72f.png">
+</p>
+
+<p align="center">
+ <strong>Here is a code snippit of getting users interests and updating the users interests if added interests or changed interests.</strong>
 </p>
 
 <br>
@@ -83,7 +84,11 @@ Once you have started the server and the project is running, you will be brought
 
 <p>
 <video src="https://user-images.githubusercontent.com/116111559/235318762-fe28572b-18a3-48ca-bb53-0ea2f50f2d5a.mp4" width=180/>
-</p<
+</p>
+ 
+ <p align="center">
+ <strong>Example of choosing your interest when you create an account for Social Society</strong>
+</p>
 
 <br>
 <br>
