@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { grabAllPosts } from "../features/postSlice";
 import { setCurrentUser, currentUser, getAllUsers } from "../features/loggedUserSlice";
 import LoginPage from "../components/LoginPage";
+import InterestsModal from "../components/InterestsModal";
 import LogOutModal from "../components/LogOutModal";
 import MessageField from "../components/MessageField";
 import MessageOptions from "../components/MessageOptions";
@@ -53,9 +54,10 @@ export default function Messages() {
     }
 
     return (
-        <div className='main'>
+        <div className='main' id='message-page'>
             <SideBar/>
             <LogOutModal/>
+            <InterestsModal/>
             <div className="content" style={{width: '30%'}}>
                 <MessageOptions/>
             </div>

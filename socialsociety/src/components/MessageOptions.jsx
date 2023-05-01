@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setRoom } from '../features/socketRoomsSlice';
 import { allUsers, sendToUser, currentUser } from '../features/loggedUserSlice';
+import io from 'socket.io-client'
+const socket = io.connect('http://localhost:7000')
 
 export default function MessageOptions() {
     const dispatch = useDispatch()
@@ -19,7 +21,8 @@ export default function MessageOptions() {
     }
     const createRoom = () => {
         if(chosen !== ''){
-            dispatch(setRoom(loggedInUser.username+'=='+chosen))
+            dispatch(setRoom(chosen))
+            socket.emit('join', {user: chosen})
         }else {
             alert('no recipient selected')
         }

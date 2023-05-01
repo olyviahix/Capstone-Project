@@ -1,7 +1,7 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewPosts } from '../features/postSlice';
+import { addNewPosts, addUserPost } from '../features/postSlice';
 import { currentUser } from '../features/loggedUserSlice';
 import axios from 'axios';
 import io from 'socket.io-client'
@@ -74,6 +74,7 @@ export default function AddPosts() {
                         console.log(response.data);
                         if(response.data !== 'Request failed.'){
                             dispatch(addNewPosts(response.data));
+                            dispatch(addUserPost(response.data))
                             console.log(response.data);
                         }
                     })

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { openLogOut } from "../features/toggleSlice";
 import { Link, NavLink } from "react-router-dom";
 import { allUsers, currentUser } from "../features/loggedUserSlice";
-import { grabAllPosts } from "../features/postSlice";
+import { grabAllPosts, getUserPosts } from "../features/postSlice";
 import { useEffect, useState } from 'react';
 import { setCurrentUser, getAllUsers } from "../features/loggedUserSlice";
 import axios from "axios";
@@ -13,10 +13,23 @@ const socket = io.connect('http://localhost:7000')
 
 
 export default function SideBar() {
-
+    
     const dispatch = useDispatch();
     const url = 'http://localhost:7000';
+    const loggedUser = useSelector(currentUser);
 
+    const fetchUserPosts = async (userID) => {
+        try {
+            const response = await axios.get(url+`/get-user-post/${userID}`)
+            if(response.data !== null){
+                response.data.map((item) => {
+                    dispatch(getUserPosts(item))
+                })
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
     const fetchUsers = async () => {
         try {
             const response = await axios.get(url+'/all-users')
@@ -47,16 +60,11 @@ export default function SideBar() {
             dispatch(setCurrentUser(user));
             fetchUsers();
             fetchPost();
+            fetchUserPosts(user.id);
+            console.log('useefect done')
         }
     }, []);
-    // useEffect(()=> {
-    //     socket.on('recieve-notif', (data)=> {
-    //         console.log('notif recieved')
-    //         setNotifCount(notif_count++)
-    //     })
-    // }, [socket])
 
-    const loggedUser = useSelector(currentUser);
     const logout = () => {
         dispatch(openLogOut());
     }
@@ -111,10 +119,6 @@ export default function SideBar() {
                                 <div className="link_text">Logout</div>
                             </div>
                 </Link>
-                <div className="footer" id="mobile-footer">
-                    <i class="bi bi-person-circle"></i>
-                    <span>{loggedUser.firstName}</span> <span style={{color: 'red'}}>{notif_count}</span>
-                </div>
             </div>
         </div>
     )

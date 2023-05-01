@@ -26,14 +26,18 @@ export const postSlice = createSlice({
         },
         removePost: (state, action) => {
             state.value.allPosts.splice(action.payload, 1)
+        },
+        addUserPost: (state, action) => {
+            state.value.userPosts.push(action.payload)
         }
     }
 })
 
-export const { addNewPosts, grabAllPosts, newNotif, emptyNotif, removePost } = postSlice.actions;
+export const { addNewPosts, grabAllPosts, newNotif, emptyNotif, removePost, addUserPost } = postSlice.actions;
 
 export const getPosts = (state) => state.posts.value.userPosts
 export const showAll = (state) => state.posts.value.allPosts
 export const getNotif = (state) => state.posts.value.notifs
+export const getUserPosts = (state) => state.posts.value.userPosts
 
 export default postSlice.reducer;

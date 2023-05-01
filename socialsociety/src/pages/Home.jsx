@@ -22,6 +22,7 @@ export default function Home() {
    
     const onInputChange = (e) => {
         setAllUser(users.filter((item)=> item.username.includes(e.target.value)))
+        console.log(users)
     }
 
     const fetchUsers = async () => {
@@ -29,6 +30,7 @@ export default function Home() {
             const response = await axios.get(url+'/all-users')
             if(response.data !== null){
                 dispatch(getAllUsers(response.data))
+                setAllUser(users)
             }
         } catch (err) {
             console.log(err)
@@ -45,15 +47,13 @@ export default function Home() {
         }
     }
     useEffect(()=> {
-        console.log('4:00')
-    }, [allPosts])
-    useEffect(()=> {
         const foundUser = localStorage.getItem('user');
         const user = JSON.parse(foundUser)
         if(foundUser != null){
             dispatch(setCurrentUser(user));
             fetchUsers();
             fetchPost();
+           
         }
     }, []);
 
@@ -69,14 +69,14 @@ export default function Home() {
                 <div className='post-section'>
                     {
                         allPosts.slice().reverse().map((item, index) => (
-                            <PostContent username={item.username} content={item.content} key={index} id={index+'li'} time={item.date} uuid={item.uuid}/>
+                            <PostContent username={item.username} content={item.content} key={index} item={item} likes={item.likes} id={index+'li'} time={item.date} uuid={item.uuid}/>
                         ))
                     }
                 </div>
             </div>
             <div className='right-content' id='right-section'>
                 <div className='post-section-right' style={{background: '#b3'}}>
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={onInputChange}/>
                     {
                         allUser.map((item, index) => (
                             <Suggestion username={item.username}/>

@@ -11,9 +11,14 @@ import Avatar from '../components/Avatar';
 // import FollowBtn from '../components/FollowButton';
 import MessageBtn from '../components/MessageButton';
 import PsuedoFol from '../components/PsuedoFollow';
+import PostContent from '../components/PostContent';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserPost, getUserPosts } from '../features/postSlice';
 
 function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false);
+    const dispatch = useDispatch()
+    const allUserPosts = useSelector(getUserPosts)
 
     // These are the useStates being used to handle the state changes of the profile
     const [username, setUsername] = useState('');
@@ -102,7 +107,11 @@ function Profile() {
             <br />
 
             <div className = 'profile-post'>
-                <ProfilePost />
+                {
+                    allUserPosts.slice().reverse().map((item, index) => (
+                        <PostContent username={item.username} content={item.content} key={index} item={item} likes={item.likes} id={index+'li'} time={item.date} uuid={item.uuid}/>
+                    ))
+                }
                 <div><p></p></div>
             </div>
 

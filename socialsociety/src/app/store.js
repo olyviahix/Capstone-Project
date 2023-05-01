@@ -1,4 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, applyMiddleware } from '@reduxjs/toolkit';
+import thunk from "redux-thunk" 
 import toggleReducer from '../features/toggleSlice';
 import loggedUserReducer from '../features/loggedUserSlice';
 import postReducer from '../features/postSlice';
@@ -11,4 +12,4 @@ export const store = configureStore({
         posts: postReducer,
         socket: socketRoomsReducer
     }
-})
+}, applyMiddleware(thunk))
