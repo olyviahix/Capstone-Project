@@ -27,19 +27,19 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = document.getElementById('formUsername').value;
-    const password = document.getElementById('show-password').value
+    const password = document.getElementById("formBasicPassword").value
     const banner = document.getElementById("banner-pop")
 
     axios.get(url+`/user/${username}/${password}`).then(response => {
       const foundUser = response.data;
       console.log('api call')
-      if(foundUser != null){
+      if(foundUser){
         localStorage.setItem('user', JSON.stringify(foundUser))
         dispatch(setCurrentUser(foundUser))
         setConfirmation('Login Successfull.')
         banner.style.color = 'green'
-      }else {
-        setConfirmation('Login Unsuccessful. Try Again.')
+      }else if (foundUser === null){
+        setConfirmation('Login Unsuccessful')
         banner.style.color = 'red'
       }
     }).catch(err => {
@@ -63,7 +63,7 @@ function LoginPage() {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type={type} placeholder="Enter Password" />
-        <input id='show-password' type='checkbox' onChange={showAndHide}/> <span>{display} Password</span>
+        <input id="show-password" type='checkbox' onChange={showAndHide}/> <span>{display} Password</span>
       </Form.Group>
       <Button variant="secondary" type="submit" onClick={handleSubmit}>
         Login!

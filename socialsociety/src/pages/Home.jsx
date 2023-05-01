@@ -4,12 +4,58 @@ import PostContent from "../components/PostContent";
 import '../App.css';
 import LogOutModal from "../components/LogOutModal";
 import InterestsModal from '../components/InterestsModal'
-import { useSelector } from "react-redux";
-import { getPosts } from "../features/postSlice";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { allUsers, getAllUsers, setCurrentUser } from "../features/loggedUserSlice";
+import { getPosts, showAll, grabAllPosts } from "../features/postSlice";
+import Suggestion from "../components/Suggestions";
+import axios from "axios";
 
 
 export default function Home() {
+    const url = 'http://localhost:7000';
+    const dispatch = useDispatch();
     const posts = useSelector(getPosts);
+    const allPosts = useSelector(showAll);
+    const users = useSelector(allUsers)
+    const [allUser, setAllUser] = useState(users)
+   
+    const onInputChange = (e) => {
+        setAllUser(users.filter((item)=> item.username.includes(e.target.value)))
+    }
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get(url+'/all-users')
+            if(response.data !== null){
+                dispatch(getAllUsers(response.data))
+            }
+        } catch (err) {
+            console.log(err)
+          }
+    }
+    const fetchPost = async () => {
+        try {
+            const response = await axios.get(url+'/all-posts')
+            if(response.data !== null){
+                dispatch(grabAllPosts(response.data))
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(()=> {
+        console.log('4:00')
+    }, [allPosts])
+    useEffect(()=> {
+        const foundUser = localStorage.getItem('user');
+        const user = JSON.parse(foundUser)
+        if(foundUser != null){
+            dispatch(setCurrentUser(user));
+            fetchUsers();
+            fetchPost();
+        }
+    }, []);
 
     return (
         <div className="main">
@@ -22,16 +68,20 @@ export default function Home() {
                 </div>
                 <div className='post-section'>
                     {
-                        posts.map((item, index)=> (
-                            <PostContent username={item.username} content={item.content} key={index}/> 
+                        allPosts.slice().reverse().map((item, index) => (
+                            <PostContent username={item.username} content={item.content} key={index} id={index+'li'} time={item.date} uuid={item.uuid}/>
                         ))
                     }
-                    
                 </div>
             </div>
             <div className='right-content' id='right-section'>
-                <div className='post-section-right'>
-                    <div><p>Post</p></div>
+                <div className='post-section-right' style={{background: '#b3'}}>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    {
+                        allUser.map((item, index) => (
+                            <Suggestion username={item.username}/>
+                        ))
+                    }
                 </div>
             </div>
         </div>

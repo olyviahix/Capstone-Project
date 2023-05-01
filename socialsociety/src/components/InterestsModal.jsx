@@ -32,9 +32,11 @@ function InterestsModal() {
     try {
 
       const response = await axios.put(url+`/update-interest/${loggedInUser.id}/${selections}`)
+      
       if(response.data === 'Success.'){
-        const getResponse = await axios.get(url+`/user/${loggedInUser.username}`)
-        if(getResponse !== null){
+        const getResponse = await axios.get(url+`/user/${loggedInUser.username}/${loggedInUser.password}`)
+
+        if(getResponse.data !== null){
           console.log('get updated user info')
           dispatch(setCurrentUser(getResponse.data))
           dispatch(openInterestsModal());

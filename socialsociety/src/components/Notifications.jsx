@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import CloseButton from 'react-bootstrap/CloseButton';
 
 
-function Notifications() {
-  const [position, setPosition] = useState('top-start');
+function Notifications(props) {
+  
 
   return (
     <div className="notifications">
-        <p>John liked your photo</p>
+        <p>{props.notif}</p>
         <i class="bi bi-caret-right-fill"></i>
     </div>
   );
