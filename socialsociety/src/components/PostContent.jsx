@@ -29,7 +29,6 @@ function PostContent(props) {
         if(response.data === 'Success.'){
           socket.emit('send-notif', send)
           dispatch(addLikedPost(props.item))
-          props.time++
           setIconClass("bi bi-heart-fill icon-interact")
         }
       } catch(err){

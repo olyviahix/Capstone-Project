@@ -78,16 +78,16 @@ function CreateUser() {
         </div>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridFirstName">
-          <Form.Control type="text" placeholder="First Name" />
+          <Form.Control type="text" placeholder="First Name" required/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridLastName">
-          <Form.Control type="text" placeholder="Last Name" />
+          <Form.Control type="text" placeholder="Last Name" required/>
         </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" controlId="formGridEmail">
-        <Form.Control type='email' placeholder="Email" />
+        <Form.Control type='email' placeholder="Email" required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formGridUsername">
