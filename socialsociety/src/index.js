@@ -16,6 +16,9 @@ import CreateUserPage from './pages/CreateUserPage';
 import FollowPage from './pages/FollowList';
 import Profile from './pages/Profile_copy';
 import SettingsPage from './pages/SettingsPage';
+import Notifications from './pages/NotificationPage';
+import Explore from './pages/Explore'
+import Profile2 from './pages/Profile';
 
 const container = document.getElementById('root');
 const root = createRoot(container, +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -48,6 +51,18 @@ const router = createBrowserRouter([
   {
     path: 'settings',
     element: <SettingsPage/>
+  },
+  {
+    path: 'notification',
+    element:<Notifications/>
+  },
+  {
+    path: 'explore',
+    element:<Explore/>
+  },
+  {
+    path: 'profile2',
+    element:<Profile2/>
   }
 ]);
 

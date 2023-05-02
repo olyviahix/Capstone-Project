@@ -20,14 +20,15 @@
     "react": "^18.2.0",
     "react-avatar-edit": "^1.2.0",
     "react-bootstrap": "^2.7.4",
+    "react-dispatch": "^1.2.0",
     "react-dom": "^18.2.0",
     "react-follow-unfollow-modal": "^0.1.5",
     "react-native": "^0.71.6",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.9",
     "socket.io-client": "^4.6.1",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

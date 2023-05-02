@@ -1,6 +1,6 @@
 import SideBar from '../components/Sidebar';
 import LogOutModal from '../components/LogOutModal';
-
+import { Link } from 'react-router-dom';
 
 function FollowPage() {
 
@@ -9,9 +9,17 @@ return (
         <SideBar />
         <LogOutModal/>
           
-        <div className = 'ProfileBox'>
+        <div className = 'societyList'>
             
-            <h2>Follower/Following</h2> 
+            <div className = 'society-top'>
+                <h2>MY SOCIETY</h2>
+            </div> 
+                    <br/>
+                    <br/>
+                    <div>
+                    <Link to = '/profile2' className = 'fake'>SAM_I_AM</Link>
+                    </div>
+                    
 
         </div>
         
@@ -20,7 +28,7 @@ return (
                     <div><p>Post</p></div>
                 </div>
         </div>
-    </div>
+</div>
     )
 }
 

@@ -52,7 +52,7 @@ export default function SettingsPage() {
             <DeleteAccountModal/>
             <div id="mobile-content" className='content' style={{width: '40%'}}>
                 <div id='mobile-fixed' className='fixed-container' style={{border: 'none', margin: '20px 0'}}>
-                    <h3 style={{fontWeight: 'bold'}}>Settings</h3>
+                    <h3 style={{fontWeight: 'bold'}}>SETTINGS</h3>
                 </div>
                 <div className='post-section' style={{textAlign: 'left', width: '100%', gap: '2rem', marginTop: '50px'}}>
                 {

@@ -11,7 +11,7 @@ export default function Notifications() {
             
             <div id="mobile-content" className='content' >
                 <div id='mobile-fixed' className='fixed-container'>
-                <h1>Notifications</h1>
+                <h2>NOTIFICATIONS</h2>
                 </div> 
                 <div className="post-section" style={{textAlign: 'left', width: '100%', gap: '2rem', marginTop: '20px'}}>
                     <Notifications1/>
@@ -20,7 +20,7 @@ export default function Notifications() {
             </div>
             <div className='right-content' id='right-section'>
                 <div className='fixed-container-right'>
-                    <h1>Suggestions</h1>
+                    <h2>SUGGESTIONS</h2>
                 </div>
             </div>
         </div>

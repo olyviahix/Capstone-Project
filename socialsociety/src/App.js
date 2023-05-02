@@ -1,11 +1,10 @@
 import './App.css';
-import Notifications from './pages/NotificationPage';
 import LoginPage from './components/LoginPage';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser, currentUser, getAllUsers  } from './features/loggedUserSlice';
-import axios from 'axios';
-import Home from '../pages/Home'
+// import axios from 'axios';
+import Home from './pages/Home'
 // import io from 'socket.io-client'
 // const socket = io.connect('http://localhost:7000')
 

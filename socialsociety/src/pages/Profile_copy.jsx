@@ -38,21 +38,25 @@ function Profile() {
             
                 <CoverPic2 />
                 
-
-            <br />
-            {/* This code was going to be used to change the username dynamically but went a different route */}
-
-                <Avatar /> 
-
-           <div className = 'FolMess'>
-                <MessageBtn />
-                <PsuedoFol />
-                {/* <FollowBtn /> */}
+            <br /> 
+            <div className = 'joinProfile'>
+                {/* This code was going to be used to change the username dynamically but went a different route */}
+                    <Avatar /> 
+                <div className = 'FolMess'>     
                 
-           </div>
+                    {/* <MessageBtn /> */}
+                    {/* <PsuedoFol /> */}
+                        {/* I want to work on the FollowMe component to check how many followers the user have, if not maybe count how many likes the user
+                        has. */}
+                    <FollowMe /> 
+                    
+                </div>
+          
+            </div>
 
             <h2>{username}</h2>
-            
+               <p>{bio}</p> 
+               
                 {/* This code below is for the popup screen which has a separate css file from the App.css */}
                 <button className = 'editBtn' onClick = {() => setButtonPopup(true)}>Edit Profile</button>
             <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
@@ -92,11 +96,6 @@ function Profile() {
 
             </Popup>
             
-               
-
-            {/* I want to work on the FollowMe component to check how many followers the user have, if not maybe count how many likes the user
-                has. */}
-            <FollowMe /> 
 
             <br />
 

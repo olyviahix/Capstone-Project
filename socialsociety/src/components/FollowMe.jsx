@@ -12,14 +12,14 @@ function FollowMe() {
                 
                 <a href = '/follow'
                 className = 'hover-link'>
-                Followers: 0
+                Society
                 </a> 
                 
-                <a href = '/follow'
+                {/* <a href = '/follow'
                 className = 'hover-link'>
                 Following: 0</a>
 
-                Post: 0
+                Post: 0 */}
             </p>
         </div>
     )

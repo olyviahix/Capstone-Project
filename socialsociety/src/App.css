@@ -172,13 +172,13 @@
   border-right: .02px solid #ccc;
 }
 .post-button {
-  background: rgba(128, 128, 128, .3);
+  background: blue;
   width: 6.5rem;
   border-radius: 50px;
   border: none;
   color: #fff;
   font-weight: bold;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
 }
 .post-options {
@@ -548,9 +548,9 @@ textarea {
 
 .FolMess {
   display: flex; 
-  flex-direction: row;
+  flex-direction: column;
   gap: 15px;
-  margin-left: 80%;
+  margin-left: 20%;
 }
 
 .PsuBtn, .changeBtn{
@@ -565,3 +565,64 @@ textarea {
   color: white;
 }
 
+.society-top {
+  position: sticky;
+  top: 0px;
+}
+
+.societyList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 800px;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  border-right: .02px solid #ccc;
+  text-align: center;
+}
+
+.joinProfile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 800px;
+  height: 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.ProfileBox2 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  align-content: space-around;
+  /* flex-wrap:wrap; */
+  padding: 20px;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  border-right: .02px solid #ccc;
+  text-align: center
+}
+
+.fake {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.icon-blue {
+  color: blue;
+  font-size: 25px;
+}

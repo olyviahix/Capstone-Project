@@ -9,6 +9,7 @@ import axios from "axios";
 import SS_Logo from '../Images/SS_Logo(white).png'
 
 
+
 export default function SideBar() {
 
     const dispatch = useDispatch();
@@ -41,11 +42,11 @@ export default function SideBar() {
 
 
     const navItem = [
-        {
+    {
         path: '/',
         icon: <i className="bi bi-grid-3x3-gap-fill"></i>,
         linkText: 'Home'
-        },
+    },
     {
         path: '/profile',
         icon: <i className="bi bi-person-circle profile" ></i>,
@@ -60,6 +61,11 @@ export default function SideBar() {
         path: '/messages',
         icon: <i className="bi bi-chat-left-fill"></i>,
         linkText: 'Messages'
+    },
+    {
+        path: '/explore',
+        icon: <i className="bi bi-hash"></i>,
+        linkText: 'Explore'
     },
     {
         path: '/settings',
@@ -90,8 +96,8 @@ export default function SideBar() {
                             </div>
                 </Link>
                 <div className="footer" id="mobile-footer">
-                    <i class="bi bi-person-circle"></i>
-                    <span>{loggedUser.firstName}</span>
+                    <i className="bi bi-person-circle"></i>
+                    {/* <span>{loggedUser.firstName}</span> */}
                 </div>
             </div>
         </div>
