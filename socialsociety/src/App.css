@@ -104,9 +104,12 @@
     flex-direction: column;
     background-color: black;;
   }
-  #settings-main {
+  #settings-main, #message-page {
     display: flex;
     flex-direction: row;
+  }
+  #msg-contain-resp {
+    margin-bottom: 3rem;
   }
   #mobile-content{
     width: 100vw;
@@ -170,6 +173,43 @@
 .content {
   width: 60%;
   border-right: .02px solid #ccc;
+}
+.dropdown {
+  position: relative;
+  left: 13.5rem;
+  bottom: 1.5rem;
+  width: 175px;
+  z-index: 1;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #000;
+  transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* .remove-li:hover {
+  cursor: pointer;
+  background-color: rgba(196, 190, 190, 0.1);
+} */
+.dropdown.open {
+  height: 50px;
+}
+.dropdown li {
+  padding: 0.7rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+.dropdown li a {
+  text-decoration: none;
+  color: #000;
+}
+.dropdown li:hover {
+  color: #fff;
+  cursor: pointer;
 }
 .post-button {
   background: blue;
@@ -447,6 +487,7 @@
   padding: 20px;
   width: 800px;
   max-width: 100%;
+  overflow-y: auto;
   margin: 0 auto;
   background-color: black;
   color: white;

@@ -37,6 +37,10 @@ const router = createBrowserRouter([
     element: <Messages/>
   },
   {
+    path: 'notification',
+    element: <Notifications/>
+  },
+  {
     path: 'createuser',
     element: <CreateUserPage/>
   },

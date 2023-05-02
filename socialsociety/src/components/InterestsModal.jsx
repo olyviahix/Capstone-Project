@@ -1,27 +1,56 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { currentUser, setCurrentUser } from '../features/loggedUserSlice';
+import { setToggle, openInterestsModal } from '../features/toggleSlice';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 function InterestsModal() {
+
+  const url = 'http://localhost:7000';
+  const dispatch = useDispatch()
+  const loggedInUser = useSelector(currentUser)
   const [show, setShow] = useState(false);
   const [active, setActive] = useState(false);
+  const selectionArray = []
+  const [selections, setSelections] = useState([])
 
-  const handleClose = () => setShow(false);
+  const interest = useSelector(setToggle)
+
+  const handleClose = () => {
+    dispatch(openInterestsModal())
+  };
   const handleShow = () => setShow(true);
   const handleClick = event => {
+    setSelections(array => [...array, event.target.innerText])
     event.currentTarget.classList.toggle('selected-interest-button');
   };
-// console.log(active)
+  const showResult = async () => {
+    try {
+
+      const response = await axios.put(url+`/update-interest/${loggedInUser.id}/${selections}`)
+      
+      if(response.data === 'Success.'){
+        const getResponse = await axios.get(url+`/user/${loggedInUser.username}/${loggedInUser.password}`)
+
+        if(getResponse.data !== null){
+          console.log('get updated user info')
+          dispatch(setCurrentUser(getResponse.data))
+          dispatch(openInterestsModal());
+        }
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div>
-      <Button variant="secondary" onClick={handleShow}>
-        This will be the "create user" button that takes you to the interests selections
-      </Button>
-
       <Modal
-        show={show}
+        show={interest.interestsModal}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
@@ -73,7 +102,7 @@ function InterestsModal() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Save!</Button>
+          <Button variant="primary" onClick={showResult}>Save!</Button>
         </Modal.Footer>
       </Modal>
     </div>

@@ -1,9 +1,11 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewPosts } from '../features/postSlice';
+import { addNewPosts, addUserPost } from '../features/postSlice';
 import { currentUser } from '../features/loggedUserSlice';
 import axios from 'axios';
+import io from 'socket.io-client'
+const socket = io.connect('http://localhost:7000')
 
 export default function AddPosts() {
 
@@ -14,23 +16,7 @@ export default function AddPosts() {
     const input = document.getElementById('file-upload');
     const [progress, setProgress] = useState(0);
 
-    const uploadImage = () => {
-        const display = document.getElementById('display-image');
-        const file = input.files;
-        
 
-        display.setAttribute('src', URL.createObjectURL(file[0]))
-        display.style.display = 'block';
-    }
-
-    const removeImage = () => {
-        const display = document.getElementById('display-image');
-        const textarea = document.getElementById('textarea-char');
-
-        display.removeAttribute('src')
-        textarea.innerText = ''
-        display.style.display = 'none'
-    }
 
     const countChar = () => {
         const textarea = document.getElementById('textarea-char');
@@ -62,14 +48,18 @@ export default function AddPosts() {
 
         }else{
 
-            const file = input.files;
-            const formData = new FormData();
-            formData.append('image', file[0])
+            // const file = input.files;
+            // const formData = new FormData();
+            // formData.append('image', file[0])
 
             const addPost = {
                 content: textarea.innerText,
                 username: loggedInUser.username,
-                images: (file[0] != null ? formData : 'none'),
+                date: new Date().toLocaleString('en-US', {
+                    hour12: true,
+                    hour: 'numeric',
+                    minute: 'numeric'
+                }),
                 likes: '0',
                 uuid: uuid
             }
@@ -79,13 +69,12 @@ export default function AddPosts() {
                 if(response.data === 'Success.'){
                     console.log('Post added successfully')
                     textarea.innerText = ''
-                    display.removeAttribute('src')
-                    display.style.display = 'none' 
-                    input.value = ''
 
                     axios.get(url+`/post/${addPost.uuid}`).then(response => {
+                        console.log(response.data);
                         if(response.data !== 'Request failed.'){
                             dispatch(addNewPosts(response.data));
+                            dispatch(addUserPost(response.data))
                             console.log(response.data);
                         }
                     })
@@ -96,15 +85,13 @@ export default function AddPosts() {
 
     return (
         <div style={{border: '2px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-            <h1>POSTS</h1>
-            <div className="textarea-post" contentEditable='true' placeholder="What's happening?"></div>
+            <div id='textarea-char' className="textarea-post" contentEditable='true' placeholder="What's happening?" style={{marginTop: '2rem'}}></div>
             <div className="post-options">
-                <div style={{margin: '15px 0 0 30px', display: 'flex', gap: '2rem'}}>
-                    <i className="bi bi-image-fill pointer icon-blue"></i>
-                    <i className="bi bi-emoji-smile-fill pointer icon-blue"></i>
+                <div style={{margin: '15px 0 0 30px', display: 'flex', gap: '.5rem', fontWeight: 'bold'}}>
+                    <i class="bi bi-person-circle"></i> <span>{loggedInUser.username}</span>
                 </div>
                 <div>
-                    <button className="post-button"><i className="bi bi-plus-lg plus-icon"></i> POST</button>
+                    <button className="post-button" onClick={post}><i className="bi bi-plus-lg plus-icon"></i> POST</button>
                 </div>
             </div>
         </div>

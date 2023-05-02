@@ -2,14 +2,14 @@ import {  createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     value: {
-        rooms: null
+        rooms: ''
     }
 }
 
 export const socketRoomsSlice = createSlice({
     name: 'socket',
     initialState, 
-    reducer: {
+    reducers: {
         setRoom: (state, action) => {
             state.value.rooms = action.payload
         }

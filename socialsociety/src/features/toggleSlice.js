@@ -8,6 +8,7 @@ const initialState = {
     value: {
         logOutModal: false,
         deleteModal: false,
+        interestsModal: false,
         settingsTab: [
             {
                 name: 'Account information',
@@ -46,11 +47,14 @@ export const toggleSlice = createSlice({
         },
         openDeleteModal: (state) => {
             state.value.deleteModal = !state.value.deleteModal;
+        },
+        openInterestsModal: (state) => {
+            state.value.interestsModal = !state.value.interestsModal;
         }
     }
 });
 
-export const { openLogOut, settingsChosen, openDeleteModal } = toggleSlice.actions;
+export const { openLogOut, settingsChosen, openDeleteModal, openInterestsModal } = toggleSlice.actions;
 
 export const setToggle = (state) => state.toggle.value;
 

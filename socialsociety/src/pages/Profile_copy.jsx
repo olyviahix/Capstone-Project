@@ -11,9 +11,14 @@ import Avatar from '../components/Avatar';
 // import FollowBtn from '../components/FollowButton';
 import MessageBtn from '../components/MessageButton';
 import PsuedoFol from '../components/PsuedoFollow';
+import PostContent from '../components/PostContent';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserPost, getUserPosts } from '../features/postSlice';
 
 function Profile() {
     const [buttonPopup, setButtonPopup] = useState(false);
+    const dispatch = useDispatch()
+    const allUserPosts = useSelector(getUserPosts)
 
     // These are the useStates being used to handle the state changes of the profile
     const [username, setUsername] = useState('');
@@ -22,8 +27,9 @@ function Profile() {
     //This code will prevent the page from refreshing after clicking the button
     const handleSubmit = (e) => {
         e.preventDefault();
+        // axios api call needs to go here
         const page = { username, bio}
-
+        setButtonPopup(false)
         console.log(page);
 
     }
@@ -55,8 +61,7 @@ function Profile() {
             </div>
 
             <h2>{username}</h2>
-               <p>{bio}</p> 
-               
+                <p>{bio}</p>
                 {/* This code below is for the popup screen which has a separate css file from the App.css */}
                 <button className = 'editBtn' onClick = {() => setButtonPopup(true)}>Edit Profile</button>
             <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
@@ -66,7 +71,7 @@ function Profile() {
                 <div className = 'edit'>
                 <h2>Edit Profile</h2>
 
-                <form onSubmit = {handleSubmit}>
+                <form id='edit-form' onSubmit = {handleSubmit}>
 
                     {/* <Avatar
                         value = {propic}
@@ -88,7 +93,7 @@ function Profile() {
                         onChange={(e) => setBio(e.target.value)}
                     ></textarea>
 
-                    <button>Save Changes</button>
+                    <button form='edit-form' type='submit' >Save Changes</button>
 
                     
                 </form>
@@ -100,7 +105,11 @@ function Profile() {
             <br />
 
             <div className = 'profile-post'>
-                <ProfilePost />
+                {
+                    allUserPosts.slice().reverse().map((item, index) => (
+                        <PostContent username={item.username} content={item.content} key={index} item={item} likes={item.likes} id={index+'li'} time={item.date} uuid={item.uuid}/>
+                    ))
+                }
                 <div><p></p></div>
             </div>
 

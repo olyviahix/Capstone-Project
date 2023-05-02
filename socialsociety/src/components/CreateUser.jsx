@@ -5,13 +5,16 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Logo_Full from '../Images/Logo_Full.png';
 import axios from "axios";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { openInterestsModal } from "../features/toggleSlice";
 import { setCurrentUser } from "../features/loggedUserSlice";
 
 function CreateUser() {
 
   const url = 'http://localhost:7000'
   const dispatch = useDispatch();
+  const [confirmation, setConfirmation] = useState('')
   
 
   const check = () => {
@@ -33,6 +36,7 @@ function CreateUser() {
     const lastName = document.getElementById('formGridLastName');
     const password = document.getElementById('formGridPassword');
     const passwordVerified = document.getElementById('formGridPassword-Verified');
+    const banner = document.getElementById('banner-create')
 
     if(password.value === passwordVerified.value && password.value != null){
       const user = {
@@ -45,20 +49,23 @@ function CreateUser() {
       axios.post(url+'/create-user', user).then(response => {
         if(response.data === 'Request successful.'){
     
-          axios.get(url+`/user/${username.value}`).then(response => {
+          axios.get(url+`/user/${username.value}/${passwordVerified.value}`).then(response => {
             console.log('rest')
             if(response.data != null){
               localStorage.setItem('user', JSON.stringify(response.data))
               dispatch(setCurrentUser(response.data))
+              dispatch(openInterestsModal());
             }
 
           }).catch(err => {
-            console.log(err)
+            setConfirmation('Account Creation failed. Try Again')
+            banner.style.color = 'red'
           })
         }
       }).catch(error => {
         if(error){
-          console.log(error)
+          setConfirmation('Account Creation failed. Try Again')
+          banner.style.color = 'red'
         }
       })
       }
@@ -104,7 +111,7 @@ function CreateUser() {
                 Log In!
             </Link>
       </div>
-      
+      <span id="banner-create" style={{marginTop: '3rem'}}>{confirmation}</span>
     </Form>
   );
 }
