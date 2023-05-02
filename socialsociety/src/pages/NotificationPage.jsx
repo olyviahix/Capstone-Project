@@ -28,7 +28,7 @@ export default function Notifications() {
         <div className='main'>
             <SideBar/>
             <LogOutModal/>
-            <div id="mobile-content" className='content' >
+            <div id="mobile-content" className='content' style={{width: '100%'}}>
                 <div id='mobile-fixed' className='fixed-container'>
                 <button class="btn btn-light" style={{width: '12rem', marginTop: '1rem', marginBottom: '1rem'}} onClick={empty}>Clear Notifications</button>
                 </div> 
@@ -41,11 +41,6 @@ export default function Notifications() {
                     
                 </div>
                 
-            </div>
-            <div className='right-content' id='right-section'>
-                <div className='fixed-container-right'>
-                    <h2>SUGGESTIONS</h2>
-                </div>
             </div>
         </div>
     )

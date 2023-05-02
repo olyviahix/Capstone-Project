@@ -14,13 +14,7 @@ function Explore() {
                 <br />
                 <Link to = '/profile2' className = 'fake'>SAM_I_AM</Link>
                     
-            </div>            
-                <div className='right-content' id='right-section'>
-                        <div className='post-section-right'>
-                            <div><p>Post</p></div>
-                        </div>
-                </div>
-            
+            </div>           
         </div>
     )
 }

@@ -118,13 +118,6 @@ function Profile() {
             <ProfilePost />
             <div><p></p></div>
         </div> */}
-           
-        
-        <div className='right-content' id='right-section'>
-                <div className='post-section-right'>
-                    <div><p>Post</p></div>
-                </div>
-        </div>
     </div>
     )
 }

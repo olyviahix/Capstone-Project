@@ -53,14 +53,6 @@ function Profile2() {
             </div>
 
         </div>
-  
-           
-        
-        <div className='right-content' id='right-section'>
-                <div className='post-section-right'>
-                    <div><p>Post</p></div>
-                </div>
-        </div>
     </div>
     )
 }
