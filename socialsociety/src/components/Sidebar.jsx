@@ -78,6 +78,11 @@ export default function SideBar() {
         linkText: 'Home'
     },
     {
+        path: '/explore',
+        icon: <i className="bi bi-hash"></i>,
+        linkText: 'Explore'
+    },
+    {
         path: '/profile',
         icon: <i className="bi bi-person-circle profile" ></i>,
         linkText: 'Profile'
@@ -91,11 +96,6 @@ export default function SideBar() {
         path: '/messages',
         icon: <i className="bi bi-chat-left-fill"></i>,
         linkText: 'Messages'
-    },
-    {
-        path: '/explore',
-        icon: <i className="bi bi-hash"></i>,
-        linkText: 'Explore'
     },
     {
         path: '/settings',

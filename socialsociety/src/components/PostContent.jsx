@@ -16,7 +16,7 @@ function PostContent(props) {
   const imgTag = document.getElementById('post-image');
   const loggedInUser = useSelector(currentUser)
   const allPosts = useSelector(showAll)
-  const [iconClass, setIconClass] = useState(props.likes >= 1 ? "bi bi-heart-fill icon-interact": "bi bi-heart icon-interact")
+  const [iconClass, setIconClass] = useState(props.likes < 1 ? "bi bi-heart icon-interact": "bi bi-heart-fill icon-interact")
   const [deleteOptions, setDeleteOptions] = useState()
 
   const onNotify = async () => {
@@ -59,7 +59,6 @@ const deletePost = async () => {
       if(response.data === 'Success.'){
         const index = allPosts.map((item)=> item.uuid).indexOf(props.uuid)
         if(index != 1){
-          console.log(index)
           return dispatch(removePost(index))
         }
       }
@@ -74,7 +73,7 @@ const erasePost = async () => {
       
     }else {
       if(iconClass == "bi bi-heart icon-interact"){
-        setDeleteOptions(<li className='remove-li' onClick={()=>{console.log('post liked')}}>Like post</li>)
+        setDeleteOptions(<li className='remove-li' onClick={()=>{onNotify()}}>Like post</li>)
       }else{
         setDeleteOptions(<li className='remove-li' onClick={()=>{console.log('post unliked')}}>Unlike post</li>)
         console.log(deleteOptions)
