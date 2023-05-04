@@ -2,11 +2,15 @@
 <strong>Social Media Group Project - Olyvia Hix, Amir Ali, Ereck Butler</strong>
 
 <br>
+
 <p align="center">
-  <img width="200" height="325" src="https://user-images.githubusercontent.com/116111559/235308668-e275be12-0b21-4835-9695-393a7e92624e.png">
+  <img src="https://user-images.githubusercontent.com/116111559/235308668-e275be12-0b21-4835-9695-393a7e92624e.png" width="200" height="350" Login S/>
+  
+  <img src="https://user-images.githubusercontent.com/116111559/236334987-2345975c-3f04-496d-9f70-b413bdeb0800.png" width="500" height="350"/> 
 </p>
-<p align="center">
-<strong>(Login Screen)</strong>
+<p
+  align="center">
+<strong>(Login Screen) (Social Society Home Screen)</strong>
 </p>
 
 <br>
@@ -73,11 +77,12 @@ In future progress, we plan on adding the option to add your own photos for your
 # How To Run Social Society
 
 If working in VSCode, open two terminals. One for the front end, and one for the backend. Npm start both of the terminals. This will start your local server and start the app in your browser.
+Backend Repository/Code = https://github.com/satele99/Capstone-Project-Backend
 
 
 # How To Use Social Society
 
-Once you have started the server and the project is running, you will be brought to a "Create User" page. You can enter your information and it will be stored in the backend database. You will then be prompted to click on your interests. Those will also be saved in the database and linked to you as the user. If you already have an account, simply click "login". Once you are logged in, you will be brought to the main feed page. You will see posts from users you follow, and also can post your own status from there too. On the left you will see the navbar that has the home link, profile link, notifications link, messages link, settings link, and logout option. On the right, you will see a section that gives you options of other users to follow, that have selected the same interests as you! This is how you connect to those similar to you.
+Once you have started the server and the project is running, you will be brought to a "Create User" page. You can enter your information and it will be stored in the backend database. You will then be prompted to click on your interests. Those will also be saved in the database and linked to you as the user. If you already have an account, simply click "login". Once you are logged in, you will be brought to the main feed page. You will see posts from any user with the Social Society app, and also can post your own status from there too. On the left you will see the navbar that has the home link, profile link, notifications link, messages link, settings link, explore link, and logout option. On the right, you will see a section that gives you options of other users to follow, that have selected the same interests as you! This is how you connect to those similar to you.
 
 <br>
 <br>
